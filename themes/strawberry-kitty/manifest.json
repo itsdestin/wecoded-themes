@@ -10,7 +10,7 @@
     "panel": "#FCE4E9",
     "inset": "#FFF1F3",
     "well": "#EFBCC6",
-    "accent": "#D94E6B",
+    "accent": "#CC4060",
     "on-accent": "#FFFFFF",
     "fg": "#3A1420",
     "fg-2": "#5C2235",
@@ -19,7 +19,7 @@
     "fg-faint": "#C9959F",
     "edge": "#E09AA8",
     "edge-dim": "#E09AA880",
-    "scrollbar-thumb": "#D94E6B",
+    "scrollbar-thumb": "#CC4060",
     "scrollbar-hover": "#B33952"
   },
   "shape": {

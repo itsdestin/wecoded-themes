@@ -158,3 +158,12 @@ jobs:
             exit 1
           fi
           echo "✓ All slugs unique"
+
+      # Contrast audit: WCAG-style ratios for panel/canvas + text colors.
+      # Runs across all themes (not just changed ones) so we surface
+      # regressions everywhere. Non-blocking for now (several existing
+      # themes fail) — transition to required once they're fixed.
+      - name: Audit theme color contrast
+        continue-on-error: true
+        run: |
+          node scripts/audit-contrast.mjs
