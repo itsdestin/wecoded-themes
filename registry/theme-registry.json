@@ -1,7 +1,41 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-07T09:39:34.967695+00:00",
+  "generatedAt": "2026-07-07T10:36:06.799859+00:00",
   "themes": [
+    {
+      "slug": "cotton-candy-sky",
+      "name": "Cotton Candy Sky",
+      "author": "claude",
+      "dark": false,
+      "description": null,
+      "preview": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/cotton-candy-sky/preview.png",
+      "previewTokens": {
+        "canvas": "#FBF5FC",
+        "panel": "#ECDDF0",
+        "accent": "#8B47B8",
+        "on-accent": "#FFFFFF",
+        "fg": "#2A1E36",
+        "fg-muted": "#917E9E",
+        "edge": "#B597C6"
+      },
+      "version": "1.0.0",
+      "created": "2026-06-19",
+      "updated": "2026-07-07",
+      "source": "community",
+      "features": [
+        "wallpaper",
+        "glassmorphism",
+        "particles",
+        "custom-font",
+        "custom-css"
+      ],
+      "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/cotton-candy-sky/manifest.json",
+      "assetUrls": {
+        "assets/wallpaper-terminal.webp": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/cotton-candy-sky/assets/wallpaper-terminal.webp",
+        "assets/wallpaper.jpg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/cotton-candy-sky/assets/wallpaper.jpg"
+      },
+      "contentHash": "sha256:5305d87a1a4a634dfba1a459657748dc251c473ddac6634a03ac06bc5903d720"
+    },
     {
       "slug": "devils-garden",
       "name": "Devil's Garden",
@@ -154,6 +188,39 @@
         "assets/wallpaper.webp": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/wallpaper.webp"
       },
       "contentHash": null
+    },
+    {
+      "slug": "meadow-mist",
+      "name": "Meadow Mist",
+      "author": "claude",
+      "dark": false,
+      "description": null,
+      "preview": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/preview.png",
+      "previewTokens": {
+        "canvas": "#F6FAF5",
+        "panel": "#DDE9DA",
+        "accent": "#2F7D55",
+        "on-accent": "#FFFFFF",
+        "fg": "#16241B",
+        "fg-muted": "#7C9384",
+        "edge": "#8FB191"
+      },
+      "version": "1.0.0",
+      "created": "2026-06-19",
+      "updated": "2026-07-07",
+      "source": "community",
+      "features": [
+        "wallpaper",
+        "glassmorphism",
+        "custom-font",
+        "custom-css"
+      ],
+      "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/manifest.json",
+      "assetUrls": {
+        "assets/wallpaper-terminal.webp": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/wallpaper-terminal.webp",
+        "assets/wallpaper.jpg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/wallpaper.jpg"
+      },
+      "contentHash": "sha256:168d293f2304c089afb639d1087c2c57c65c82db4776d36955bcec3dfc3a4ff1"
     },
     {
       "slug": "strawberry-kitty",
