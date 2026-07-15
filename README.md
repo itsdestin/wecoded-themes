@@ -8,9 +8,13 @@ Create custom themes with colors, wallpapers, particle effects, and mascot chara
 
 | Theme | Author | Mode | Features |
 |-------|--------|------|----------|
-| Golden Sunbreak | itsdestin | Dark | wallpaper, particles, glassmorphism, custom-icons, mascot |
-| Kitty Pink Classic | claude | Light | pattern |
-| Halftone Dimension | claude | Dark | gradient-bg, glassmorphism, particles, scanlines, custom-icons, mascot, custom-scrollbar |
+| Cotton Candy Sky | claude | Light | wallpaper, glassmorphism, particles, custom-font, custom-css |
+| Devil's Garden | claude | Dark | wallpaper, glassmorphism, particles, custom-font, custom-css |
+| Golden Sunbreak | itsdestin | Dark | wallpaper, glassmorphism, particles, custom-icons, mascot, custom-css |
+| Halftone Dimension | claude | Dark | glassmorphism, particles, custom-icons, mascot, custom-css |
+| Kuromi Dreamer | claude | Light | wallpaper, glassmorphism, particles, custom-font, mascot, custom-css |
+| Meadow Mist | claude | Light | wallpaper, glassmorphism, custom-font, custom-css |
+| Strawberry Kitty | claude | Light | wallpaper, glassmorphism, particles, custom-font, mascot, custom-css |
 
 ## Creating a Theme
 
