@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: sunglasses · slot: slot-eyewear · anchor: 12 9.9
+       Lenses stay near-black on every theme (they're sunglasses).
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-eyewear">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+  </g>
+  <rect x="7.3" y="8.5" width="4.2" height="2.7" rx="1.1" fill="#14121c"/>
+  <rect x="12.5" y="8.5" width="4.2" height="2.7" rx="1.1" fill="#14121c"/>
+  <path d="M11.5 9.3 Q12 9 12.5 9.3" fill="none" stroke="#14121c" stroke-width="0.55"/>
+  <path d="M7.3 9.4 L5.3 8.9" stroke="#14121c" stroke-width="0.5"/>
+  <path d="M16.7 9.4 L18.7 8.9" stroke="#14121c" stroke-width="0.5"/>
+  <path d="M8 9.2 L9.4 9.2" stroke="#ffffff" stroke-width="0.3" opacity="0.5"/>
+  <path d="M13.2 9.2 L14.6 9.2" stroke="#ffffff" stroke-width="0.3" opacity="0.5"/>
+</svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: pencil · slot: slot-item · anchor: 21.5 12.8 (right hand)
+       Lives INSIDE rig-arm-right, so it waves and trails with the arm.
+       Eraser band tints with var(- -rig-accent).
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-item">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+    <path d="M20.8 9 L22.2 9 A0.8 0.8 0 0 1 23 9.8 L23 12.2 A0.8 0.8 0 0 1 22.2 13 L20.8 13 A0.8 0.8 0 0 1 20 12.2 L20 9.8 A0.8 0.8 0 0 1 20.8 9 Z" fill="#888888"/>
+  </g>
+  <g transform="rotate(-35 21.5 12.8)">
+    <rect x="21" y="8.9" width="1" height="5.2" rx="0.15" fill="#E8B33C"/>
+    <path d="M21 14.1 L21.5 15.4 L22 14.1 Z" fill="#d9c6ab"/>
+    <path d="M21.32 14.95 L21.5 15.4 L21.68 14.95 Z" fill="#3a3a3a"/>
+    <rect x="21" y="8.9" width="1" height="0.7" rx="0.15" fill="var(--rig-accent, #ffc030)"/>
+  </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: party hat · slot: slot-hat · anchor: 12 4
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-hat">.
+       Tint: var(- -rig-accent) with a fallback. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting — it only previews the body position -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+  </g>
+  <path d="M10.5 4.6 L12 0.9 L13.5 4.6 Z" fill="var(--rig-accent, #ffc030)"/>
+  <path d="M10.9 3.6 L13.1 3.6 L12.66 2.52 L11.34 2.52 Z" fill="#ffffff" opacity="0.35"/>
+  <circle cx="12" cy="0.9" r="0.55" fill="#ffffff" opacity="0.9"/>
+</svg>

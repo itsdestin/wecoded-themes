@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: dimensional visor (Halftone Dimension's signature) · slot: slot-eyewear · anchor: 12 9.9
+       Hardcoded red/cyan identity — geometry from the theme's shipped mascot art.
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-eyewear">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+  </g>
+  <rect x="5.8" y="7.6" width="12.4" height="2.8" rx="1.2" fill="#e8234a" opacity="0.55"/>
+  <rect x="6.2" y="8" width="11.6" height="2" rx="0.9" fill="#08060e" opacity="0.45"/>
+  <path d="M6.6 8.3 L17 8.3" stroke="#00b8ff" stroke-width="0.18" opacity="0.6"/>
+</svg>

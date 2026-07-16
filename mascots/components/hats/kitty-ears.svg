@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: cat ears + bow + strawberry (Strawberry Kitty's signature) · slot: slot-hat · anchor: 12 4
+       Ears fill with var(- -rig-body) and outline with var(- -rig-line); berry/bow are hardcoded identity.
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-hat">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+  </g>
+  <path d="M6 4.3 L6.8 1.8 L9 4 Z" fill="var(--rig-body, #FFFFFF)" stroke="var(--rig-line, #3A1420)" stroke-width="0.6"/>
+  <path d="M18 4.3 L17.2 1.8 L15 4 Z" fill="var(--rig-body, #FFFFFF)" stroke="var(--rig-line, #3A1420)" stroke-width="0.6"/>
+  <path d="M17.2 3.3 L16.2 2.5 L16.2 4 Z" fill="#E14560"/>
+  <path d="M17.2 3.3 L18.2 2.5 L18.2 4 Z" fill="#E14560"/>
+  <circle cx="17.2" cy="3.3" r="0.35" fill="#E14560"/>
+  <path d="M6.7 5.2 Q6 6 6.2 6.8 Q6.6 7.6 7.4 7.5 Q8 7.2 8.1 6.3 Q8 5.4 7.4 5.1 Z" fill="#E14560"/>
+  <path d="M6.5 5.1 L7.6 4.9 L7.5 5.4 L6.9 5.5 Z" fill="#6DB56D"/>
+  <circle cx="6.8" cy="6.0" r="0.1" fill="#FFF2A8"/><circle cx="7.4" cy="6.0" r="0.1" fill="#FFF2A8"/><circle cx="7.1" cy="6.6" r="0.1" fill="#FFF2A8"/>
+</svg>
