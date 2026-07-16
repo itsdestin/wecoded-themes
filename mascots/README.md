@@ -33,7 +33,8 @@ One SVG per theme. The app finds parts by `id`:
 
 ```svg
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
-  <g id="rig-root">                                  <!-- breathing is applied here -->
+  <g id="rig-root">                                  <!-- the idle-motion loop is applied here -->
+    <g id="rig-tail"      data-pivot="19 14" >…</g>  <!-- optional; springs like a limb -->
     <g id="rig-arm-left"  data-pivot="2.5 9">…</g>
     <g id="rig-arm-right" data-pivot="21.5 9">… <g id="slot-item"/> </g>
     <g id="rig-leg-left"  data-pivot="8.95 17">…</g>
@@ -49,6 +50,8 @@ One SVG per theme. The app finds parts by `id`:
       <g id="slot-eyewear"/>
     </g>
     <g id="slot-hat"/>
+    <g id="rig-hand-peek-right" style="display:none">…</g>  <!-- optional grip mittens, see below -->
+    <g id="rig-hand-peek-left"  style="display:none">…</g>
   </g>
 </svg>
 ```
@@ -60,9 +63,34 @@ One SVG per theme. The app finds parts by `id`:
 - The `viewBox="-3 -5 30 30"` padding leaves headroom for hats (above y 0) and held items
   (right of x 24) while the character itself stays in the classic **24×24 art box**.
 - Every face group except `rig-face-idle` starts `style="display:none"`.
-- Don't draw a ground shadow, and don't add your own animation — poses, drag physics, breathing,
-  blinking, greet/drop bounces, and reduced-effects handling are all app-side and apply to every
-  conforming rig automatically.
+- `rig-tail` is optional and springs like a limb during drag (Kuromi's tail wags). Pivot where
+  it meets the body.
+- Don't draw a ground shadow, and don't add your own animation — poses, drag physics, the
+  motion-style idle loops (chill/bouncy/floaty/hyper/sleepy), blinking, greet/drop bounces,
+  peek staging, and reduced-effects handling are all app-side and apply to every conforming
+  rig automatically.
+
+### Grip hands for the side-edge peek
+
+When the buddy docks to a side screen edge and dozes off, the app stages him hanging over the
+frame: two hands planted on the edge, body sagging between them at 75° (approved 2026-07-16).
+The hand art comes from optional `rig-hand-peek-right` / `rig-hand-peek-left` groups — the app
+clones them out of the rig and pins them to the screen edge, so draw each as a single
+**fingerless mitten** (a vertical rounded knuckle bump, matching the limb language — NO fingers)
+in the same coordinate space as the limbs. Give it a rim stroke darker than the body (body color
+mixed ~40% toward black, or your line color on outline skins) so it reads against the
+same-colored body behind it. Rigs without these groups still peek — they just sink past the
+edge without hands.
+
+### Scene companions (flourishes that follow the buddy)
+
+Don't bake scenery (suns, sparkles, speed-lines) statically into the rig — static backdrops
+are retired. Flourishes ship as **companions**: small standalone SVGs with a preferred offset
+that the app spring-follows behind the buddy (they trail on drag, bob idly, lean while catching
+up; reduced-effects pins them in place). Ghost-type companions (Halftone's chromatic after-image)
+stay invisible at rest and materialize with lag distance. Keep to one or two per theme. The
+declaration format rides the app's rig-rendering work — for now, note intended companions in
+your theme's PR description and keep their art as separate small SVGs.
 
 ### Faces are paint, not holes
 
@@ -144,9 +172,10 @@ character that is still unmistakably the YouCoded buddy.**
 - One of the six approved skins, or an original treatment in their spirit.
 - Palette: derive from the theme's tokens (`accent` body / `on-accent` face is the default), or
   hardcode a signature color the way Golden Sunbreak does.
-- One or two per-theme flourishes: a scene element (sun + dust motes), body texture (halftone
-  dots, chromatic ghost lines), or a signature component pre-filled into a slot (ears, jester
-  peaks, visor). More than two reads as noise.
+- One or two per-theme flourishes: a scene companion (sun + dust motes — see the companions
+  section above; never static scenery), body texture (halftone dots, chromatic ghost lines),
+  or a signature component pre-filled into a slot (ears, jester peaks, visor). More than two
+  reads as noise.
 
 **Quality bar:**
 - Must read at 24 px (the buddy renders around 80 px; details under ~0.3 units vanish).
