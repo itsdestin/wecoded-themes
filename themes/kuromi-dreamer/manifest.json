@@ -65,6 +65,7 @@
     "noise": 0
   },
   "mascot": {
+    "rig": "assets/mascot-rig.svg",
     "idle": "assets/mascot-idle.svg",
     "welcome": "assets/mascot-welcome.svg",
     "shocked": "assets/mascot-shocked.svg",

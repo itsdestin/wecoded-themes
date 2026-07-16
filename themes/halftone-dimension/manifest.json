@@ -67,6 +67,7 @@
     "send": "assets/icon-send.svg"
   },
   "mascot": {
+    "rig": "assets/mascot-rig.svg",
     "idle": "assets/mascot-idle.svg",
     "welcome": "assets/mascot-welcome.svg",
     "inquisitive": "assets/mascot-inquisitive.svg"
