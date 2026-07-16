@@ -15,15 +15,16 @@ from scratch.
 | Path | What it is |
 |---|---|
 | `skins/` | The six approved art treatments, each as a complete reference rig on a demo palette. Swap the demo colors for your theme's. |
-| `examples/` | Complete per-theme rigs: Kuromi Dreamer and Strawberry Kitty rebuilt to the rig contract, signature components included. |
+| `examples/` | Complete per-theme rigs rebuilt to the rig contract, signature components included: Golden Sunbreak and Halftone Dimension (solid/tinted bodies), Kuromi Dreamer and Strawberry Kitty (outline/white bodies). |
 | `components/` | Drop-in hats, eyewear, and held items. Paste the file's inner markup into the matching slot group. |
 
 Three ways to make a mascot, in ascending effort:
 
 1. **Mix and match** — pick a skin from `skins/`, recolor it to your theme's palette, drop
    components from `components/` into the slots.
-2. **Adapt an example** — start from `examples/kuromi-dreamer.rig.svg` or
-   `strawberry-kitty.rig.svg` if your theme is outline/white-body style.
+2. **Adapt an example** — start from `examples/golden-sunbreak.rig.svg` or
+   `halftone-dimension.rig.svg` for solid/tinted bodies, `examples/kuromi-dreamer.rig.svg`
+   or `strawberry-kitty.rig.svg` for outline/white-body style.
 3. **Generate from scratch** — follow the constraints in the last section; everything the app
    animates comes free as long as the contract is respected.
 
