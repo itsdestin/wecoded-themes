@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: round glasses · slot: slot-eyewear · anchor: 12 9.9
+       Frames tint with var(- -rig-line).
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-eyewear">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+  </g>
+  <g fill="none" stroke="var(--rig-line, #2a1004)" stroke-width="0.5">
+    <circle cx="9.4" cy="10" r="1.85"/>
+    <circle cx="14.6" cy="10" r="1.85"/>
+    <path d="M11.25 9.7 Q12 9.3 12.75 9.7"/>
+    <path d="M7.55 9.7 L5.4 9.1"/>
+    <path d="M16.45 9.7 L18.6 9.1"/>
+  </g>
+</svg>

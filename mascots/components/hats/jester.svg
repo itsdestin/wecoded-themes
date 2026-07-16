@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: jester hat + skull charm (Kuromi Dreamer's signature) · slot: slot-hat · anchor: 12 4
+       Peaks tint with var(- -rig-line); the pink charm is hardcoded identity.
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-hat">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+  </g>
+  <path d="M7 4 L6.5 1.5 L9 3.5 Z" fill="var(--rig-line, #1A0F28)"/>
+  <path d="M17 4 L17.5 1.5 L15 3.5 Z" fill="var(--rig-line, #1A0F28)"/>
+  <circle cx="6.5" cy="1.5" r="0.5" fill="#FF4FB8"/>
+  <circle cx="17.5" cy="1.5" r="0.5" fill="#FF4FB8"/>
+  <circle cx="12" cy="5.8" r="0.9" fill="#FF4FB8"/>
+  <circle cx="11.7" cy="5.6" r="0.22" fill="#1A0F28"/><circle cx="12.3" cy="5.6" r="0.22" fill="#1A0F28"/>
+  <rect x="11.7" y="6" width="0.6" height="0.4" fill="#1A0F28"/>
+</svg>

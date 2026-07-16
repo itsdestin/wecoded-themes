@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: crown · slot: slot-hat · anchor: 12 4
+       Hardcoded gold on purpose — a crown has its own identity on every theme.
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-hat">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+  </g>
+  <path d="M9.2 4.5 L9.2 2.4 L10.6 3.5 L12 1.9 L13.4 3.5 L14.8 2.4 L14.8 4.5 Z" fill="#E8B33C" stroke="#B8862A" stroke-width="0.18"/>
+  <circle cx="12" cy="3.5" r="0.32" fill="#E14560"/>
+</svg>

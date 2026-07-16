@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: coffee mug · slot: slot-item · anchor: 21.5 12.8 (right hand)
+       Lives INSIDE rig-arm-right, so it waves and trails with the arm.
+       Mug tints with var(- -rig-accent).
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-item">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+    <path d="M20.8 9 L22.2 9 A0.8 0.8 0 0 1 23 9.8 L23 12.2 A0.8 0.8 0 0 1 22.2 13 L20.8 13 A0.8 0.8 0 0 1 20 12.2 L20 9.8 A0.8 0.8 0 0 1 20.8 9 Z" fill="#888888"/>
+  </g>
+  <rect x="20.3" y="12.4" width="2.3" height="2.1" rx="0.35" fill="var(--rig-accent, #ffc030)"/>
+  <path d="M22.6 12.9 Q23.5 13.3 22.6 14" fill="none" stroke="var(--rig-accent, #ffc030)" stroke-width="0.4"/>
+  <path d="M21 11.9 Q21.2 11.3 21 10.8" fill="none" stroke="rgba(160,160,160,0.8)" stroke-width="0.3" stroke-linecap="round"/>
+  <path d="M21.9 11.9 Q22.1 11.3 21.9 10.8" fill="none" stroke="rgba(160,160,160,0.6)" stroke-width="0.3" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!-- Component: balloon · slot: slot-item · anchor: 21.5 12.8 (right hand)
+       Lives INSIDE rig-arm-right, so it waves and trails with the arm.
+       Balloon tints with var(- -rig-accent); string with var(- -rig-line).
+       The class="balloonBob" group is an app hook for a gentle float loop — harmless standalone.
+       Paste everything AFTER the preview scaffold into your rig's <g id="slot-item">. -->
+  <g id="preview-scaffold" opacity="0.15">
+    <!-- delete this group when pasting -->
+    <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#888888"/>
+    <path d="M20.8 9 L22.2 9 A0.8 0.8 0 0 1 23 9.8 L23 12.2 A0.8 0.8 0 0 1 22.2 13 L20.8 13 A0.8 0.8 0 0 1 20 12.2 L20 9.8 A0.8 0.8 0 0 1 20.8 9 Z" fill="#888888"/>
+  </g>
+  <path d="M21.5 12.8 Q22.3 10.5 21.9 8.4" fill="none" stroke="var(--rig-line, #2a1004)" stroke-width="0.25" opacity="0.7"/>
+  <g class="balloonBob">
+    <ellipse cx="21.9" cy="6.6" rx="1.7" ry="2" fill="var(--rig-accent, #ffc030)"/>
+    <ellipse cx="21.35" cy="5.9" rx="0.45" ry="0.65" fill="#ffffff" opacity="0.45"/>
+    <path d="M21.7 8.55 L22.1 8.55 L21.9 9 Z" fill="var(--rig-accent, #ffc030)"/>
+  </g>
+</svg>

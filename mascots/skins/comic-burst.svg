@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-3 -5 30 30">
+  <!--
+    Skin: comic burst — comic pop turned to maximum. Manga speed-line burst behind the
+    body (inside rig-root so it moves with the buddy), CMYK misregistration ghost
+    outlines, fat 0.9 ink line, bigger halftone dots, double action sparks.
+    Recolor for your theme:
+      body     #f0a828     shade  #b8760f     ink  #604310 (light ink on dark bodies)
+      face     #2a1004     sparkles #ffc030 / #ffe090 / #ffd060
+      ghost plates stay #00b8ff (cyan) and #e8234a (red) on every theme.
+    Contract: ../README.md
+  -->
+  <defs>
+    <clipPath id="c-body"><path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z"/></clipPath>
+    <pattern id="p-dots2" width="1.7" height="1.7" patternUnits="userSpaceOnUse">
+      <circle cx="0.85" cy="0.85" r="0.42" fill="#b8760f"/>
+    </pattern>
+  </defs>
+  <g id="rig-root">
+    <!-- speed-line burst: 22 radial lines on an ellipse around the body -->
+    <g opacity="0.85" stroke="#604310">
+      <line x1="20.60" y1="10.00" x2="24.20" y2="10.00" stroke-width="0.22"/>
+      <line x1="20.31" y1="12.33" x2="23.79" y2="13.52" stroke-width="0.32"/>
+      <line x1="19.11" y1="14.68" x2="22.09" y2="16.42" stroke-width="0.22"/>
+      <line x1="16.63" y1="15.79" x2="18.79" y2="18.51" stroke-width="0.32"/>
+      <line x1="13.55" y1="16.72" x2="14.31" y2="20.09" stroke-width="0.22"/>
+      <line x1="10.77" y1="16.15" x2="10.03" y2="19.42" stroke-width="0.32"/>
+      <line x1="7.61" y1="15.85" x2="5.72" y2="18.36" stroke-width="0.22"/>
+      <line x1="5.29" y1="14.11" x2="2.62" y2="15.72" stroke-width="0.32"/>
+      <line x1="3.62" y1="12.03" x2="0.31" y2="12.71" stroke-width="0.22"/>
+      <line x1="3.30" y1="9.74" x2="-0.66" y2="9.65" stroke-width="0.32"/>
+      <line x1="3.72" y1="7.49" x2="0.42" y2="6.42" stroke-width="0.22"/>
+      <line x1="5.16" y1="5.36" x2="2.44" y2="3.55" stroke-width="0.32"/>
+      <line x1="7.27" y1="3.94" x2="5.24" y2="1.28" stroke-width="0.22"/>
+      <line x1="10.31" y1="3.02" x2="9.44" y2="-0.24" stroke-width="0.32"/>
+      <line x1="13.19" y1="3.15" x2="13.86" y2="-0.13" stroke-width="0.22"/>
+      <line x1="16.31" y1="3.83" x2="18.19" y2="1.11" stroke-width="0.32"/>
+      <line x1="18.63" y1="5.32" x2="21.42" y2="3.63" stroke-width="0.22"/>
+      <line x1="20.16" y1="7.42" x2="23.62" y2="6.51" stroke-width="0.32"/>
+    </g>
+    <g id="rig-arm-left" data-pivot="2.5 9">
+      <path d="M1.8 9 L3.2 9 A0.8 0.8 0 0 1 4 9.8 L4 12.2 A0.8 0.8 0 0 1 3.2 13 L1.8 13 A0.8 0.8 0 0 1 1 12.2 L1 9.8 A0.8 0.8 0 0 1 1.8 9 Z" fill="#f0a828" stroke="#604310" stroke-width="0.7"/>
+    </g>
+    <g id="rig-arm-right" data-pivot="21.5 9">
+      <path d="M20.8 9 L22.2 9 A0.8 0.8 0 0 1 23 9.8 L23 12.2 A0.8 0.8 0 0 1 22.2 13 L20.8 13 A0.8 0.8 0 0 1 20 12.2 L20 9.8 A0.8 0.8 0 0 1 20.8 9 Z" fill="#f0a828" stroke="#604310" stroke-width="0.7"/>
+      <g id="slot-item"/>
+    </g>
+    <g id="rig-leg-left" data-pivot="8.95 17">
+      <rect x="7.2" y="17" width="3.5" height="4" rx="1.2" fill="#f0a828" stroke="#604310" stroke-width="0.7"/>
+    </g>
+    <g id="rig-leg-right" data-pivot="15.05 17">
+      <rect x="13.3" y="17" width="3.5" height="4" rx="1.2" fill="#f0a828" stroke="#604310" stroke-width="0.7"/>
+    </g>
+    <g id="rig-body">
+      <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="none" stroke="#00b8ff" stroke-width="0.55" opacity="0.6" transform="translate(-0.45 0.1)"/>
+      <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="none" stroke="#e8234a" stroke-width="0.55" opacity="0.6" transform="translate(0.45 0.28)"/>
+      <path d="M9 4 L15 4 A4 4 0 0 1 19 8 L19 12 A4 4 0 0 1 15 16 L9 16 A4 4 0 0 1 5 12 L5 8 A4 4 0 0 1 9 4 Z" fill="#f0a828" stroke="#604310" stroke-width="0.9" stroke-linejoin="round"/>
+      <g clip-path="url(#c-body)">
+        <path fill-rule="evenodd" d="M4 3 H20 V17 H4 Z M9.5 -3 A10 10 0 1 0 9.5 17 A10 10 0 1 0 9.5 -3 Z" fill="#b8760f" opacity="0.4"/>
+        <path fill-rule="evenodd" d="M4 3 H20 V17 H4 Z M9.5 -3 A10 10 0 1 0 9.5 17 A10 10 0 1 0 9.5 -3 Z" fill="url(#p-dots2)" opacity="0.85"/>
+      </g>
+      <path d="M7.1 5.2 L7.5 6.3 L8.6 6.7 L7.5 7.1 L7.1 8.2 L6.7 7.1 L5.6 6.7 L6.7 6.3 Z" fill="#ffffff" opacity="0.95"/>
+      <path d="M16.4 4.4 L16.65 5.1 L17.35 5.35 L16.65 5.6 L16.4 6.3 L16.15 5.6 L15.45 5.35 L16.15 5.1 Z" fill="#ffffff" opacity="0.85"/>
+      <g id="rig-face-idle">
+        <path fill="#2a1004" d="M8.5 8 L10.5 10 L8.5 12 L9.5 12 L11.5 10 L9.5 8 Z"/>
+        <path fill="#2a1004" d="M15.5 8 L13.5 10 L15.5 12 L14.5 12 L12.5 10 L14.5 8 Z"/>
+      </g>
+      <g id="rig-face-welcome" style="display:none">
+        <ellipse cx="9.3" cy="9.55" rx="1.6" ry="2.2" fill="#2a1004"/>
+        <ellipse cx="14.7" cy="9.25" rx="1.6" ry="2.2" fill="#2a1004"/>
+        <circle cx="10" cy="10.25" r="0.28" fill="#ffc030"/><circle cx="9.35" cy="10.85" r="0.2" fill="#ffe090"/><circle cx="10.3" cy="10.85" r="0.14" fill="#ffd060"/>
+        <circle cx="15.4" cy="9.95" r="0.28" fill="#ffc030"/><circle cx="14.75" cy="10.55" r="0.2" fill="#ffe090"/><circle cx="15.65" cy="10.55" r="0.14" fill="#ffd060"/>
+        <g transform="rotate(-2 12 13.3)"><path d="M10.8 13.3 Q10.8 13 12 13 Q13.2 13 13.2 13.3 A1.1 1 0 0 1 10.8 13.3 Z" fill="#2a1004"/></g>
+      </g>
+      <g id="rig-face-curious" style="display:none">
+        <ellipse cx="9.3" cy="9.55" rx="1.7" ry="2.3" fill="#2a1004"/>
+        <ellipse cx="14.7" cy="9.25" rx="1.7" ry="2.3" fill="#2a1004"/>
+        <g class="pupil"><circle cx="9.75" cy="9.2" r="0.42" fill="#ffc030"/><circle cx="9" cy="10.3" r="0.22" fill="#ffe090"/><circle cx="9.95" cy="10.15" r="0.14" fill="#ffd060"/></g>
+        <g class="pupil"><circle cx="15.15" cy="8.9" r="0.42" fill="#ffc030"/><circle cx="14.4" cy="10" r="0.22" fill="#ffe090"/><circle cx="15.35" cy="9.85" r="0.14" fill="#ffd060"/></g>
+        <path d="M13.5 6.1 Q14.7 5.55 15.9 6.1" fill="none" stroke="#2a1004" stroke-width="0.45" stroke-linecap="round"/>
+        <ellipse cx="12.1" cy="13.1" rx="0.55" ry="0.65" fill="#2a1004"/>
+      </g>
+      <g id="rig-face-shocked" style="display:none">
+        <circle cx="9.3" cy="9.8" r="2.1" fill="#2a1004"/>
+        <circle cx="14.7" cy="9.8" r="2.1" fill="#2a1004"/>
+        <circle cx="9.9" cy="9.2" r="0.5" fill="#ffe090"/><circle cx="15.3" cy="9.2" r="0.5" fill="#ffe090"/>
+        <ellipse cx="12" cy="13.6" rx="1" ry="1.25" fill="#2a1004"/>
+      </g>
+      <g id="rig-face-dizzy" style="display:none">
+        <g stroke="#2a1004" stroke-width="1" stroke-linecap="round">
+          <line x1="8" y1="8.6" x2="10.6" y2="11.4"/><line x1="10.6" y1="8.6" x2="8" y2="11.4"/>
+          <line x1="13.4" y1="8.6" x2="16" y2="11.4"/><line x1="16" y1="8.6" x2="13.4" y2="11.4"/>
+        </g>
+        <path d="M10.4 13.6 L11.2 13 L12 13.6 L12.8 13 L13.6 13.6" fill="none" stroke="#2a1004" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M5.4 3.6 Q6.4 2.6 7.4 3.6 Q6.4 4.6 5.4 3.6" fill="none" stroke="#ffc030" stroke-width="0.5" stroke-linecap="round"/>
+        <path d="M16.6 3.6 Q17.6 2.6 18.6 3.6 Q17.6 4.6 16.6 3.6" fill="none" stroke="#ffc030" stroke-width="0.5" stroke-linecap="round"/>
+      </g>
+      <g id="rig-face-blink" style="display:none">
+        <path d="M8 10 Q9.3 11 10.6 10" fill="none" stroke="#2a1004" stroke-width="0.9" stroke-linecap="round"/>
+        <path d="M13.4 10 Q14.7 11 16 10" fill="none" stroke="#2a1004" stroke-width="0.9" stroke-linecap="round"/>
+      </g>
+      <g id="slot-eyewear"/>
+    </g>
+    <g id="slot-hat"/>
+  </g>
+</svg>
