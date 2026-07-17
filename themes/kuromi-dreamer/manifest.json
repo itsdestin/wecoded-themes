@@ -1,7 +1,12 @@
 {
   "name": "Kuromi Dreamer",
   "slug": "kuromi-dreamer",
-  "version": "1.1.0",
+  "version": "1.2.0",
+  "companions": [
+    {"asset": "assets/companions/spark-pink.svg", "size": 0.113, "dx": -0.452, "dy": -0.33, "stiffness": 95, "damping": 8, "float": 0.035, "floatMs": 2000},
+    {"asset": "assets/companions/spark-white.svg", "size": 0.065, "dx": 0.417, "dy": -0.435, "stiffness": 70, "damping": 7, "float": 0.048, "floatMs": 2500},
+    {"asset": "assets/companions/spark-pink-soft.svg", "size": 0.052, "dx": 0.522, "dy": 0.104, "stiffness": 55, "damping": 6, "float": 0.039, "floatMs": 1800}
+  ],
   "dark": false,
   "author": "claude",
   "created": "2026-04-12",
