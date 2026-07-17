@@ -1,7 +1,13 @@
 {
   "name": "Golden Sunbreak",
   "slug": "golden-sunbreak",
-  "version": "1.1.0",
+  "version": "1.2.0",
+  "companions": [
+    {"asset": "assets/companions/sun.svg", "size": 0.435, "dx": -0.6, "dy": -0.452, "stiffness": 65, "damping": 9, "float": 0.026, "floatMs": 2600},
+    {"asset": "assets/companions/mote-amber.svg", "size": 0.065, "dx": 0.313, "dy": -0.365, "stiffness": 120, "damping": 8, "float": 0.039, "floatMs": 1700},
+    {"asset": "assets/companions/mote-pale.svg", "size": 0.048, "dx": 0.487, "dy": -0.122, "stiffness": 85, "damping": 7, "float": 0.048, "floatMs": 2100},
+    {"asset": "assets/companions/mote-soft.svg", "size": 0.039, "dx": -0.4, "dy": 0.2, "stiffness": 55, "damping": 6, "float": 0.057, "floatMs": 2500}
+  ],
   "dark": true,
   "author": "itsdestin",
   "created": "2026-03-28",

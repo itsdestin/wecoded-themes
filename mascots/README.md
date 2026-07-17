@@ -89,9 +89,32 @@ Don't bake scenery (suns, sparkles, speed-lines) statically into the rig — sta
 are retired. Flourishes ship as **companions**: small standalone SVGs with a preferred offset
 that the app spring-follows behind the buddy (they trail on drag, bob idly, lean while catching
 up; reduced-effects pins them in place). Ghost-type companions (Halftone's chromatic after-image)
-stay invisible at rest and materialize with lag distance. Keep to one or two per theme. The
-declaration format rides the app's rig-rendering work — for now, note intended companions in
-your theme's PR description and keep their art as separate small SVGs.
+stay invisible at rest and materialize with lag distance. Keep to a small handful per theme.
+
+Declare them as a TOP-LEVEL `companions` array in `manifest.json` (top-level — NOT inside
+`mascot` — so app versions that predate companions ignore them instead of failing to resolve
+the theme):
+
+```json
+"companions": [
+  { "asset": "assets/companions/sun.svg", "size": 0.435, "dx": -0.6, "dy": -0.452,
+    "stiffness": 65, "damping": 9, "float": 0.026, "floatMs": 2600 }
+]
+```
+
+- **All lengths are fractions of the mascot's rendered size** (`size` = width; optional
+  `height` for non-square art like Halftone's bars; `dx`/`dy` = offset of the companion's
+  center from the mascot's center; `float` = idle-bob amplitude, `floatMs` its period).
+- `stiffness`/`damping` tune the follow spring (springier = higher stiffness, lower damping).
+- `"ghost": true` marks a lag-distance after-image: invisible at rest, fades in while trailing.
+- Companion SVGs go through the same sanitizer as rigs (no scripts/styles/external URLs), and
+  the app animates these class names if you use them: `comp-twinkle` (scale+fade shimmer),
+  `comp-spin` (slow rotation), `comp-pulse` (soft breathing scale), `comp-bob` (rocking tilt).
+  Keep gradient/filter `id`s unique per theme — companions are inlined into the same document.
+- Where they render today: the welcome screen mascot scene. The buddy floater's follow physics
+  is pending its window-padding redesign (the 80×80 buddy window would clip satellites).
+
+Reference: the four published mascot themes each ship a companions block (`themes/*/manifest.json`).
 
 ### Faces are paint, not holes
 

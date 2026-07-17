@@ -1,7 +1,12 @@
 {
   "name": "Halftone Dimension",
   "slug": "halftone-dimension",
-  "version": "1.1.0",
+  "version": "1.2.0",
+  "companions": [
+    {"asset": "assets/companions/ghost.svg", "size": 1.0, "dx": 0, "dy": 0, "stiffness": 34, "damping": 7, "ghost": true},
+    {"asset": "assets/companions/bar-cyan.svg", "size": 0.87, "height": 0.026, "dx": -0.035, "dy": -0.322, "stiffness": 55, "damping": 8, "float": 0.017, "floatMs": 2300},
+    {"asset": "assets/companions/bar-red.svg", "size": 0.717, "height": 0.026, "dx": 0.061, "dy": 0.33, "stiffness": 42, "damping": 7, "float": 0.022, "floatMs": 2900}
+  ],
   "dark": true,
   "author": "claude",
   "description": "Cyberpunk manga print shop — deep purple-black with hot pink accent, cyan secondary, misregistered CMY halftone dots, scanlines, and floating chrome.",
