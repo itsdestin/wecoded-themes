@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-16T23:13:36.206532+00:00",
+  "generatedAt": "2026-07-17T05:25:51.987909+00:00",
   "themes": [
     {
       "slug": "cotton-candy-sky",
@@ -20,7 +20,7 @@
       },
       "version": "1.0.0",
       "created": "2026-06-19",
-      "updated": "2026-07-16",
+      "updated": "2026-07-17",
       "source": "community",
       "features": [
         "wallpaper",
@@ -54,7 +54,7 @@
       },
       "version": "1.0.0",
       "created": "2026-04-12",
-      "updated": "2026-07-16",
+      "updated": "2026-07-17",
       "source": "community",
       "features": [
         "wallpaper",
@@ -85,9 +85,9 @@
         "fg-muted": "#806840",
         "edge": "#281e10"
       },
-      "version": "1.1.0",
+      "version": "1.2.0",
       "created": "2026-03-28",
-      "updated": "2026-07-16",
+      "updated": "2026-07-17",
       "source": "youcoded-core",
       "features": [
         "wallpaper",
@@ -99,6 +99,10 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/manifest.json",
       "assetUrls": {
+        "assets/companions/mote-amber.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/companions/mote-amber.svg",
+        "assets/companions/mote-pale.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/companions/mote-pale.svg",
+        "assets/companions/mote-soft.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/companions/mote-soft.svg",
+        "assets/companions/sun.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/companions/sun.svg",
         "assets/dust.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/dust.svg",
         "assets/icon-send.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/icon-send.svg",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/mascot-idle.svg",
@@ -127,9 +131,9 @@
         "fg-muted": "#7468a0",
         "edge": "#322850"
       },
-      "version": "1.1.0",
+      "version": "1.2.0",
       "created": "2026-04-05",
-      "updated": "2026-07-16",
+      "updated": "2026-07-17",
       "source": "community",
       "features": [
         "glassmorphism",
@@ -140,6 +144,9 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/manifest.json",
       "assetUrls": {
+        "assets/companions/bar-cyan.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/companions/bar-cyan.svg",
+        "assets/companions/bar-red.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/companions/bar-red.svg",
+        "assets/companions/ghost.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/companions/ghost.svg",
         "assets/icon-send.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/icon-send.svg",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/mascot-idle.svg",
         "assets/mascot-inquisitive.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/mascot-inquisitive.svg",
@@ -167,9 +174,9 @@
         "fg-muted": "#7E6899",
         "edge": "#8466A8"
       },
-      "version": "1.1.0",
+      "version": "1.2.0",
       "created": "2026-04-12",
-      "updated": "2026-07-16",
+      "updated": "2026-07-17",
       "source": "community",
       "features": [
         "wallpaper",
@@ -181,6 +188,9 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/manifest.json",
       "assetUrls": {
+        "assets/companions/spark-pink-soft.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/companions/spark-pink-soft.svg",
+        "assets/companions/spark-pink.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/companions/spark-pink.svg",
+        "assets/companions/spark-white.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/companions/spark-white.svg",
         "assets/mascot-dizzy.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/mascot-dizzy.svg",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/mascot-idle.svg",
         "assets/mascot-rig.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/mascot-rig.svg",
@@ -210,7 +220,7 @@
       },
       "version": "1.0.0",
       "created": "2026-06-19",
-      "updated": "2026-07-16",
+      "updated": "2026-07-17",
       "source": "community",
       "features": [
         "wallpaper",
@@ -241,9 +251,9 @@
         "fg-muted": "#A3627A",
         "edge": "#E09AA8"
       },
-      "version": "1.1.0",
+      "version": "1.2.0",
       "created": "2026-04-12",
-      "updated": "2026-07-16",
+      "updated": "2026-07-17",
       "source": "community",
       "features": [
         "wallpaper",
@@ -255,6 +265,8 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/manifest.json",
       "assetUrls": {
+        "assets/companions/berry.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/companions/berry.svg",
+        "assets/companions/spark-red.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/companions/spark-red.svg",
         "assets/mascot-dizzy.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/mascot-dizzy.svg",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/mascot-idle.svg",
         "assets/mascot-rig.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/mascot-rig.svg",
