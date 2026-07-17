@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-17T05:25:51.987909+00:00",
+  "generatedAt": "2026-07-17T23:12:15.670384+00:00",
   "themes": [
     {
       "slug": "cotton-candy-sky",
@@ -131,7 +131,7 @@
         "fg-muted": "#7468a0",
         "edge": "#322850"
       },
-      "version": "1.2.0",
+      "version": "1.2.1",
       "created": "2026-04-05",
       "updated": "2026-07-17",
       "source": "community",
@@ -174,7 +174,7 @@
         "fg-muted": "#7E6899",
         "edge": "#8466A8"
       },
-      "version": "1.2.0",
+      "version": "1.2.1",
       "created": "2026-04-12",
       "updated": "2026-07-17",
       "source": "community",
@@ -251,7 +251,7 @@
         "fg-muted": "#A3627A",
         "edge": "#E09AA8"
       },
-      "version": "1.2.0",
+      "version": "1.2.1",
       "created": "2026-04-12",
       "updated": "2026-07-17",
       "source": "community",
