@@ -80,5 +80,11 @@
       <g id="slot-eyewear"/>
     </g>
     <g id="slot-hat"/>
+    <g id="rig-hand-peek-right" style="display:none">
+      <rect x="20.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#f5dfb5" stroke="#221f1c" stroke-width="0.5"/>
+    </g>
+    <g id="rig-hand-peek-left" style="display:none">
+      <rect x="0.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#f5dfb5" stroke="#221f1c" stroke-width="0.5"/>
+    </g>
   </g>
 </svg>

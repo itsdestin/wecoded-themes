@@ -105,10 +105,10 @@
     </g>
     <g id="slot-hat"/>
     <g id="rig-hand-peek-right" style="display:none">
-      <rect x="20.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#191327" stroke="#00b8ff" stroke-width="0.34"/>
+      <rect x="20.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#191327" stroke="#e8234a" stroke-width="0.14" stroke-opacity="0.5"/>
     </g>
     <g id="rig-hand-peek-left" style="display:none">
-      <rect x="0.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#191327" stroke="#00b8ff" stroke-width="0.34"/>
+      <rect x="0.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#191327" stroke="#00b8ff" stroke-width="0.14" stroke-opacity="0.5"/>
     </g>
   </g>
 </svg>

@@ -101,5 +101,11 @@
       <g id="slot-eyewear"/>
     </g>
     <g id="slot-hat"/>
+    <g id="rig-hand-peek-right" style="display:none">
+      <rect x="20.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#f0a828" stroke="#604310" stroke-width="0.7"/>
+    </g>
+    <g id="rig-hand-peek-left" style="display:none">
+      <rect x="0.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#f0a828" stroke="#604310" stroke-width="0.7"/>
+    </g>
   </g>
 </svg>
