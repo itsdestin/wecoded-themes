@@ -75,13 +75,21 @@ One SVG per theme. The app finds parts by `id`:
 
 When the buddy docks to a side screen edge and dozes off, the app stages him hanging over the
 frame: two hands planted on the edge, body sagging between them at 75° (approved 2026-07-16).
-The hand art comes from optional `rig-hand-peek-right` / `rig-hand-peek-left` groups — the app
+The hand art comes from the `rig-hand-peek-right` / `rig-hand-peek-left` groups — the app
 clones them out of the rig and pins them to the screen edge, so draw each as a single
 **fingerless mitten** (a vertical rounded knuckle bump, matching the limb language — NO fingers)
 in the same coordinate space as the limbs. Give it a rim stroke darker than the body (body color
 mixed ~40% toward black, or your line color on outline skins) so it reads against the
-same-colored body behind it. Rigs without these groups still peek — they just sink past the
-edge without hands.
+same-colored body behind it.
+
+**Every skin in `skins/` already ships both groups** — start from one and recolor, and you get
+them for free. They're the easiest parts to lose, because nothing looks wrong until someone
+drags the buddy to a *side* edge: strawberry-kitty and kuromi-dreamer shipped without them and
+peeked bare-armed for a day before anyone noticed (2026-07-17). `scripts/audit-rigs.mjs` now
+warns on a rig that has no mittens and CI fails a rig that gets them wrong; the geometry is
+fixed at `x="0.7"` / `x="20.7"`, `y="8.3"`, `2.6 × 3.4`, `rx="1.17"` — only the paint changes.
+Technically the app degrades (a rig without them sinks past the edge bare) but that's a fallback,
+not a design.
 
 ### Scene companions (flourishes that follow the buddy)
 

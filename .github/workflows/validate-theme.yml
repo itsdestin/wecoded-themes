@@ -167,3 +167,11 @@ jobs:
         continue-on-error: true
         run: |
           node scripts/audit-contrast.mjs
+
+      # Rig contract audit: every part the app animates is found by `id`, so a
+      # missing or typo'd one fails silently — the part just never moves. This
+      # is BLOCKING (unlike contrast above): every rig in the repo passes clean
+      # as of 2026-07-17, so there is no backlog to grandfather in.
+      - name: Audit mascot rig contract
+        run: |
+          node scripts/audit-rigs.mjs

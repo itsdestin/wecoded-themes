@@ -115,5 +115,11 @@
       <path d="M6.5 5.1 L7.6 4.9 L7.5 5.4 L6.9 5.5 Z" fill="#6DB56D"/>
       <circle cx="6.8" cy="6.0" r="0.1" fill="#FFF2A8"/><circle cx="7.4" cy="6.0" r="0.1" fill="#FFF2A8"/><circle cx="7.1" cy="6.6" r="0.1" fill="#FFF2A8"/>
     </g>
+    <g id="rig-hand-peek-right" style="display:none">
+      <rect x="20.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#FFFFFF" stroke="#3A1420" stroke-width="0.6"/>
+    </g>
+    <g id="rig-hand-peek-left" style="display:none">
+      <rect x="0.7" y="8.3" width="2.6" height="3.4" rx="1.17" fill="#FFFFFF" stroke="#3A1420" stroke-width="0.6"/>
+    </g>
   </g>
 </svg>
