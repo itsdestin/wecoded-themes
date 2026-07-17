@@ -1,7 +1,7 @@
 {
   "name": "Strawberry Kitty",
   "slug": "strawberry-kitty",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "companions": [
     {"asset": "assets/companions/berry.svg", "size": 0.13, "dx": -0.487, "dy": -0.287, "stiffness": 85, "damping": 8, "float": 0.03, "floatMs": 2400},
     {"asset": "assets/companions/berry.svg", "size": 0.087, "dx": 0.47, "dy": 0.209, "stiffness": 60, "damping": 6, "float": 0.043, "floatMs": 2900},
