@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-17T23:12:15.670384+00:00",
+  "generatedAt": "2026-07-20T05:26:23.681691+00:00",
   "themes": [
     {
       "slug": "cotton-candy-sky",
@@ -14,13 +14,13 @@
         "panel": "#ECDDF0",
         "accent": "#8B47B8",
         "on-accent": "#FFFFFF",
-        "fg": "#2A1E36",
-        "fg-muted": "#917E9E",
+        "fg": "#21152C",
+        "fg-muted": "#695775",
         "edge": "#B597C6"
       },
       "version": "1.0.0",
       "created": "2026-06-19",
-      "updated": "2026-07-17",
+      "updated": "2026-07-20",
       "source": "community",
       "features": [
         "wallpaper",
@@ -48,13 +48,13 @@
         "panel": "#221020",
         "accent": "#FFC627",
         "on-accent": "#140810",
-        "fg": "#F2E0C0",
-        "fg-muted": "#8C7858",
+        "fg": "#FBE9C9",
+        "fg-muted": "#A28E6D",
         "edge": "#7A3048"
       },
       "version": "1.0.0",
       "created": "2026-04-12",
-      "updated": "2026-07-17",
+      "updated": "2026-07-20",
       "source": "community",
       "features": [
         "wallpaper",
@@ -81,13 +81,13 @@
         "panel": "#140e1a",
         "accent": "#ffc030",
         "on-accent": "#000000",
-        "fg": "#f8e8c8",
-        "fg-muted": "#806840",
-        "edge": "#281e10"
+        "fg": "#F8E8C8",
+        "fg-muted": "#917950",
+        "edge": "#3C3223"
       },
       "version": "1.2.0",
       "created": "2026-03-28",
-      "updated": "2026-07-17",
+      "updated": "2026-07-20",
       "source": "youcoded-core",
       "features": [
         "wallpaper",
@@ -125,15 +125,15 @@
       "previewTokens": {
         "canvas": "#08060e",
         "panel": "#100e1c",
-        "accent": "#e8234a",
+        "accent": "#E51F48",
         "on-accent": "#ffffff",
-        "fg": "#f0e8f8",
-        "fg-muted": "#7468a0",
-        "edge": "#322850"
+        "fg": "#F0E8F8",
+        "fg-muted": "#7468A0",
+        "edge": "#372D56"
       },
       "version": "1.2.1",
       "created": "2026-04-05",
-      "updated": "2026-07-17",
+      "updated": "2026-07-20",
       "source": "community",
       "features": [
         "glassmorphism",
@@ -170,13 +170,13 @@
         "panel": "#D4C5E6",
         "accent": "#8158ad",
         "on-accent": "#FFFFFF",
-        "fg": "#1A0F28",
-        "fg-muted": "#7E6899",
+        "fg": "#190E27",
+        "fg-muted": "#65507F",
         "edge": "#8466A8"
       },
       "version": "1.2.1",
       "created": "2026-04-12",
-      "updated": "2026-07-17",
+      "updated": "2026-07-20",
       "source": "community",
       "features": [
         "wallpaper",
@@ -214,13 +214,13 @@
         "panel": "#DDE9DA",
         "accent": "#2F7D55",
         "on-accent": "#FFFFFF",
-        "fg": "#16241B",
-        "fg-muted": "#7C9384",
+        "fg": "#041008",
+        "fg-muted": "#465B4E",
         "edge": "#8FB191"
       },
       "version": "1.0.0",
       "created": "2026-06-19",
-      "updated": "2026-07-17",
+      "updated": "2026-07-20",
       "source": "community",
       "features": [
         "wallpaper",
@@ -248,12 +248,12 @@
         "accent": "#CC4060",
         "on-accent": "#FFFFFF",
         "fg": "#3A1420",
-        "fg-muted": "#A3627A",
+        "fg-muted": "#A26179",
         "edge": "#E09AA8"
       },
       "version": "1.2.1",
       "created": "2026-04-12",
-      "updated": "2026-07-17",
+      "updated": "2026-07-20",
       "source": "community",
       "features": [
         "wallpaper",
