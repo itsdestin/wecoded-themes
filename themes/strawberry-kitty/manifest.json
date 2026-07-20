@@ -14,15 +14,15 @@
   "tokens": {
     "canvas": "#F8D7DE",
     "panel": "#FCE4E9",
-    "inset": "#FFF1F3",
+    "inset": "#FFFEFE",
     "well": "#EFBCC6",
     "accent": "#CC4060",
     "on-accent": "#FFFFFF",
     "fg": "#3A1420",
     "fg-2": "#5C2235",
     "fg-dim": "#7E3850",
-    "fg-muted": "#A3627A",
-    "fg-faint": "#C9959F",
+    "fg-muted": "#A26179",
+    "fg-faint": "#B8858F",
     "edge": "#E09AA8",
     "edge-dim": "#E09AA880",
     "scrollbar-thumb": "#CC4060",
@@ -40,6 +40,7 @@
     "google-font-url": "https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
   },
   "background": {
+    "average-color": "#F0CDC6",
     "type": "image",
     "value": "assets/wallpaper.png",
     "terminal-value": "assets/wallpaper-terminal.webp",
@@ -77,5 +78,5 @@
     "shocked": "assets/mascot-shocked.svg",
     "dizzy": "assets/mascot-dizzy.svg"
   },
-  "custom_css": "::selection { background: rgba(217,78,107,0.32); color: #FFFFFF; }"
+  "custom_css": "::selection { background: rgba(217,78,107,0.32); color: var(--fg); }"
 }

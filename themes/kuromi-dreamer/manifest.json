@@ -18,11 +18,11 @@
     "well": "#B5A2CE",
     "accent": "#8158ad",
     "on-accent": "#FFFFFF",
-    "fg": "#1A0F28",
+    "fg": "#190E27",
     "fg-2": "#3A2850",
-    "fg-dim": "#5C4476",
-    "fg-muted": "#7E6899",
-    "fg-faint": "#A896C2",
+    "fg-dim": "#543D6E",
+    "fg-muted": "#65507F",
+    "fg-faint": "#7E6D97",
     "edge": "#8466A8",
     "edge-dim": "#8466A880",
     "scrollbar-thumb": "#6E3FA0",
@@ -40,6 +40,7 @@
     "google-font-url": "https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
   },
   "background": {
+    "average-color": "#CCA1D4",
     "type": "image",
     "value": "assets/wallpaper.webp",
     "terminal-value": "assets/wallpaper-terminal.webp",
@@ -77,5 +78,5 @@
     "shocked": "assets/mascot-shocked.svg",
     "dizzy": "assets/mascot-dizzy.svg"
   },
-  "custom_css": "::selection { background: rgba(110,63,160,0.32); color: #FFFFFF; }"
+  "custom_css": "::selection { background: rgba(110,63,160,0.32); color: var(--fg); }"
 }

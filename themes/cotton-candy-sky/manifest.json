@@ -11,11 +11,11 @@
     "well": "#DAC2E6",
     "accent": "#8B47B8",
     "on-accent": "#FFFFFF",
-    "fg": "#2A1E36",
-    "fg-2": "#52415F",
-    "fg-dim": "#6F5C7D",
-    "fg-muted": "#917E9E",
-    "fg-faint": "#BBA9C6",
+    "fg": "#21152C",
+    "fg-2": "#41304D",
+    "fg-dim": "#564463",
+    "fg-muted": "#695775",
+    "fg-faint": "#84738F",
     "edge": "#B597C6",
     "edge-dim": "#B597C680",
     "scrollbar-thumb": "#8B47B8",
@@ -33,6 +33,7 @@
     "google-font-url": "https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;600;700&display=swap"
   },
   "background": {
+    "average-color": "#9274CC",
     "type": "image",
     "value": "assets/wallpaper.jpg",
     "terminal-value": "assets/wallpaper-terminal.webp",
@@ -62,6 +63,6 @@
     "vignette": 0.18,
     "noise": 0
   },
-  "custom_css": "::selection { background: rgba(139, 71, 184, 0.3); color: #FFFFFF; } [data-theme=\"cotton-candy-sky\"] h1, [data-theme=\"cotton-candy-sky\"] h2 { text-shadow: 0 0 12px rgba(139, 71, 184, 0.18); }",
+  "custom_css": "::selection { background: rgba(139, 71, 184, 0.3); color: var(--fg); } [data-theme=\"cotton-candy-sky\"] h1, [data-theme=\"cotton-candy-sky\"] h2 { text-shadow: 0 0 12px rgba(139, 71, 184, 0.18); }",
   "contentHash": "sha256:5305d87a1a4a634dfba1a459657748dc251c473ddac6634a03ac06bc5903d720"
 }

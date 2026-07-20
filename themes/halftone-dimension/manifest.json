@@ -15,16 +15,16 @@
     "canvas": "#08060e",
     "panel": "#100e1c",
     "inset": "#181430",
-    "well": "#0c0a14",
-    "accent": "#e8234a",
+    "well": "#0C0A14",
+    "accent": "#E51F48",
     "on-accent": "#ffffff",
-    "fg": "#f0e8f8",
-    "fg-2": "#d4cae4",
-    "fg-dim": "#a498c0",
-    "fg-muted": "#7468a0",
-    "fg-faint": "#443870",
-    "edge": "#322850",
-    "edge-dim": "#32285080",
+    "fg": "#F0E8F8",
+    "fg-2": "#D4CAE4",
+    "fg-dim": "#A498C0",
+    "fg-muted": "#7468A0",
+    "fg-faint": "#4D417A",
+    "edge": "#372D56",
+    "edge-dim": "#453B6580",
     "scrollbar-thumb": "#e8234a60",
     "scrollbar-hover": "#e8234a90"
   },
@@ -38,6 +38,7 @@
     "radius-full": "9999px"
   },
   "background": {
+    "average-color": "#18102E",
     "type": "gradient",
     "value": "linear-gradient(135deg, #08060e 0%, #18102e 25%, #200e3a 50%, rgba(232,35,74,0.07) 70%, rgba(0,184,255,0.05) 85%, #08060e 100%)",
     "opacity": 1,
@@ -82,6 +83,6 @@
     "thumb-image": "assets/scrollbar-thumb.svg",
     "track-color": "transparent"
   },
-  "custom_css": "::selection { background: rgba(232, 35, 74, 0.3); color: #ffffff; }\n\n[data-theme=\"halftone-dimension\"] .bg-accent { box-shadow: 0 0 20px rgba(232, 35, 74, 0.4), 0 0 40px rgba(232, 35, 74, 0.15); }\n\n[data-theme=\"halftone-dimension\"] .chat-bubble.assistant { border-left: 3px solid #e8234a; }\n[data-theme=\"halftone-dimension\"] .chat-bubble.assistant:nth-child(odd) { border-left-color: #00b8ff; }\n\n[data-theme=\"halftone-dimension\"] .header-bar { border-color: rgba(232, 35, 74, 0.4); }\n[data-theme=\"halftone-dimension\"] .input-bar-container { border-color: rgba(232, 35, 74, 0.4); }\n\n[data-theme=\"halftone-dimension\"] button:focus-visible, [data-theme=\"halftone-dimension\"] a:focus-visible, [data-theme=\"halftone-dimension\"] select:focus-visible { outline: 2px solid #e8234a; outline-offset: 2px; box-shadow: 0 0 8px rgba(232, 35, 74, 0.3); }\n\n[data-theme=\"halftone-dimension\"] h1,\n[data-theme=\"halftone-dimension\"] h2,\n[data-theme=\"halftone-dimension\"] .header-bar { text-shadow: -1.5px 0 rgba(232, 35, 74, 0.4), 1.5px 0 rgba(0, 184, 255, 0.4); }\n\n[data-theme=\"halftone-dimension\"] .send-btn { box-shadow: 0 0 12px rgba(232, 35, 74, 0.5), 0 0 24px rgba(232, 35, 74, 0.2); }\n\n[data-theme=\"halftone-dimension\"] .chat-bubble.user { box-shadow: 0 0 18px rgba(232, 35, 74, 0.3), 0 0 40px rgba(232, 35, 74, 0.1); border: 1.5px solid rgba(232, 35, 74, 0.5); }\n\n::-webkit-scrollbar-thumb { background-image: url('assets/scrollbar-thumb.svg'); background-size: contain; background-repeat: repeat-y; }\n::-webkit-scrollbar-track { background: transparent; }",
+  "custom_css": "::selection { background: rgba(232, 35, 74, 0.3); color: var(--fg); }\n\n[data-theme=\"halftone-dimension\"] .bg-accent { box-shadow: 0 0 20px rgba(232, 35, 74, 0.4), 0 0 40px rgba(232, 35, 74, 0.15); }\n\n[data-theme=\"halftone-dimension\"] .chat-bubble.assistant { border-left: 3px solid #e8234a; }\n[data-theme=\"halftone-dimension\"] .chat-bubble.assistant:nth-child(odd) { border-left-color: #00b8ff; }\n\n[data-theme=\"halftone-dimension\"] .header-bar { border-color: rgba(232, 35, 74, 0.4); }\n[data-theme=\"halftone-dimension\"] .input-bar-container { border-color: rgba(232, 35, 74, 0.4); }\n\n[data-theme=\"halftone-dimension\"] button:focus-visible, [data-theme=\"halftone-dimension\"] a:focus-visible, [data-theme=\"halftone-dimension\"] select:focus-visible { outline: 2px solid #e8234a; outline-offset: 2px; box-shadow: 0 0 8px rgba(232, 35, 74, 0.3); }\n\n[data-theme=\"halftone-dimension\"] h1,\n[data-theme=\"halftone-dimension\"] h2,\n[data-theme=\"halftone-dimension\"] .header-bar { text-shadow: -1.5px 0 rgba(232, 35, 74, 0.4), 1.5px 0 rgba(0, 184, 255, 0.4); }\n\n[data-theme=\"halftone-dimension\"] .send-btn { box-shadow: 0 0 12px rgba(232, 35, 74, 0.5), 0 0 24px rgba(232, 35, 74, 0.2); }\n\n[data-theme=\"halftone-dimension\"] .chat-bubble.user { box-shadow: 0 0 18px rgba(232, 35, 74, 0.3), 0 0 40px rgba(232, 35, 74, 0.1); border: 1.5px solid rgba(232, 35, 74, 0.5); }\n\n::-webkit-scrollbar-thumb { background-image: url('assets/scrollbar-thumb.svg'); background-size: contain; background-repeat: repeat-y; }\n::-webkit-scrollbar-track { background: transparent; }",
   "source": "community"
 }
