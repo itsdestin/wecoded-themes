@@ -159,12 +159,33 @@ jobs:
           fi
           echo "✓ All slugs unique"
 
-      # Contrast audit: WCAG-style ratios for panel/canvas + text colors.
-      # Runs across all themes (not just changed ones) so we surface
-      # regressions everywhere. Non-blocking for now (several existing
-      # themes fail) — transition to required once they're fixed.
+      # The contrast rules live in the theme-builder skill (wecoded-marketplace)
+      # and are vendored into scripts/vendor/ so this repo can audit without a
+      # cross-repo dependency at runtime. Three divergent copies of these rules
+      # is what let `fg-faint` ship unreadable in every theme, so drift is a
+      # LOUD failure rather than a silent stale file.
+      - name: Check vendored contrast rules for drift
+        run: |
+          CANON="https://raw.githubusercontent.com/itsdestin/wecoded-marketplace/master/wecoded-themes-plugin/skills/theme-builder/scripts/contrast-rules.js"
+          curl -fsSL "$CANON" -o /tmp/canonical-contrast-rules.js || {
+            echo "::error::Could not fetch canonical contrast-rules.js from $CANON"
+            exit 1
+          }
+          if ! diff -q /tmp/canonical-contrast-rules.js scripts/vendor/contrast-rules.js >/dev/null; then
+            echo "::error::scripts/vendor/contrast-rules.js has drifted from the canonical copy."
+            echo "Canonical: $CANON"
+            diff /tmp/canonical-contrast-rules.js scripts/vendor/contrast-rules.js | head -40
+            exit 1
+          fi
+          echo "✓ Vendored contrast rules match canonical"
+
+      # Contrast audit: every text tier against every surface the app can paint
+      # it on, glass-composited via background.average-color. Runs across all
+      # themes (not just changed ones) so we surface regressions everywhere.
+      # BLOCKING as of 2026-07-19 — all themes were repaletted to pass in the
+      # same change that made this required, so there is no backlog to
+      # grandfather in. HARD and SURFACE fail the build; SOFT warns only.
       - name: Audit theme color contrast
-        continue-on-error: true
         run: |
           node scripts/audit-contrast.mjs
 

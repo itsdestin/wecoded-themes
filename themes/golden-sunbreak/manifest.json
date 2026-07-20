@@ -15,17 +15,17 @@
   "tokens": {
     "canvas": "#08080e",
     "panel": "#140e1a",
-    "inset": "#1c1428",
+    "inset": "#1C1428",
     "well": "#050408",
     "accent": "#ffc030",
     "on-accent": "#000000",
-    "fg": "#f8e8c8",
-    "fg-2": "#dcc898",
-    "fg-dim": "#b09060",
-    "fg-muted": "#806840",
-    "fg-faint": "#504028",
-    "edge": "#281e10",
-    "edge-dim": "#281e1080",
+    "fg": "#F8E8C8",
+    "fg-2": "#DCC898",
+    "fg-dim": "#B09060",
+    "fg-muted": "#917950",
+    "fg-faint": "#6F5E45",
+    "edge": "#3C3223",
+    "edge-dim": "#4B403180",
     "scrollbar-thumb": "#c89020",
     "scrollbar-hover": "#ffc030"
   },
@@ -39,6 +39,7 @@
     "radius-full": "9999px"
   },
   "background": {
+    "average-color": "#727E86",
     "type": "image",
     "value": "assets/wallpaper.jpg",
     "terminal-value": "assets/wallpaper-terminal.webp",

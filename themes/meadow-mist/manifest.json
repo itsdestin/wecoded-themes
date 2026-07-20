@@ -11,11 +11,11 @@
     "well": "#C4DCBF",
     "accent": "#2F7D55",
     "on-accent": "#FFFFFF",
-    "fg": "#16241B",
-    "fg-2": "#3C5343",
-    "fg-dim": "#5C7363",
-    "fg-muted": "#7C9384",
-    "fg-faint": "#A6BBAB",
+    "fg": "#041008",
+    "fg-2": "#1E3426",
+    "fg-dim": "#33493A",
+    "fg-muted": "#465B4E",
+    "fg-faint": "#637668",
     "edge": "#8FB191",
     "edge-dim": "#8FB19180",
     "scrollbar-thumb": "#2F7D55",
@@ -33,6 +33,7 @@
     "google-font-url": "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
   },
   "background": {
+    "average-color": "#527C9F",
     "type": "image",
     "value": "assets/wallpaper.jpg",
     "terminal-value": "assets/wallpaper-terminal.webp",
@@ -55,6 +56,6 @@
     "vignette": 0,
     "noise": 0
   },
-  "custom_css": "::selection { background: rgba(47, 125, 85, 0.3); color: #FFFFFF; }",
+  "custom_css": "::selection { background: rgba(47, 125, 85, 0.3); color: var(--fg); }",
   "contentHash": "sha256:168d293f2304c089afb639d1087c2c57c65c82db4776d36955bcec3dfc3a4ff1"
 }
