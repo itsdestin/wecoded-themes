@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-07-20T05:26:23.681691+00:00",
+  "generatedAt": "2026-07-22T18:49:14.281218+00:00",
   "themes": [
     {
       "slug": "cotton-candy-sky",
@@ -20,7 +20,7 @@
       },
       "version": "1.0.0",
       "created": "2026-06-19",
-      "updated": "2026-07-20",
+      "updated": "2026-07-22",
       "source": "community",
       "features": [
         "wallpaper",
@@ -54,7 +54,7 @@
       },
       "version": "1.0.0",
       "created": "2026-04-12",
-      "updated": "2026-07-20",
+      "updated": "2026-07-22",
       "source": "community",
       "features": [
         "wallpaper",
@@ -87,7 +87,7 @@
       },
       "version": "1.2.0",
       "created": "2026-03-28",
-      "updated": "2026-07-20",
+      "updated": "2026-07-22",
       "source": "youcoded-core",
       "features": [
         "wallpaper",
@@ -131,9 +131,9 @@
         "fg-muted": "#7468A0",
         "edge": "#372D56"
       },
-      "version": "1.2.1",
+      "version": "1.2.2",
       "created": "2026-04-05",
-      "updated": "2026-07-20",
+      "updated": "2026-07-22",
       "source": "community",
       "features": [
         "glassmorphism",
@@ -176,7 +176,7 @@
       },
       "version": "1.2.1",
       "created": "2026-04-12",
-      "updated": "2026-07-20",
+      "updated": "2026-07-22",
       "source": "community",
       "features": [
         "wallpaper",
@@ -220,7 +220,7 @@
       },
       "version": "1.0.0",
       "created": "2026-06-19",
-      "updated": "2026-07-20",
+      "updated": "2026-07-22",
       "source": "community",
       "features": [
         "wallpaper",
@@ -253,7 +253,7 @@
       },
       "version": "1.2.1",
       "created": "2026-04-12",
-      "updated": "2026-07-20",
+      "updated": "2026-07-22",
       "source": "community",
       "features": [
         "wallpaper",
