@@ -1,7 +1,7 @@
 {
   "name": "Halftone Dimension",
   "slug": "halftone-dimension",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "companions": [
     {"asset": "assets/companions/ghost.svg", "size": 1.0, "dx": 0, "dy": 0, "stiffness": 34, "damping": 7, "ghost": true},
     {"asset": "assets/companions/bar-cyan.svg", "size": 0.87, "height": 0.026, "dx": -0.035, "dy": -0.322, "stiffness": 55, "damping": 8, "float": 0.017, "floatMs": 2300},
