@@ -1,0 +1,29 @@
+version: 2
+
+# Design + decisions: youcoded-dev/docs/active/specs/2026-07-23-dependabot-design.md
+# Weekly, max 5 open PRs, minor/patch grouped per ecosystem; majors individual.
+# NOTE: this repo has no meaningful npm test (the `test` script is the default
+# `exit 1` stub, and validate-theme.yml is scoped to themes/**), so the single
+# npm dep (playwright) is eyeballed on review — an accepted trade-off (spec §7).
+# GitHub Actions updates carry no such caveat.
+
+updates:
+  # ---- npm: playwright only (used for preview generation) ----
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-patch:
+        update-types: ["minor", "patch"]
+
+  # ---- GitHub Actions ----
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      actions-minor-patch:
+        update-types: ["minor", "patch"]
