@@ -19,6 +19,6 @@
   },
   "homepage": "https://github.com/itsdestin/wecoded-themes#readme",
   "dependencies": {
-    "playwright": "^1.59.1"
+    "playwright": "^1.61.1"
   }
 }
