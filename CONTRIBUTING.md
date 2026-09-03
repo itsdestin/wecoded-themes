@@ -58,3 +58,17 @@ By opening a pull request to this repository, you certify that:
 3. **Your contribution does not include malicious content** — no remote-loaded code, no obfuscated scripts, no tracking pixels, no attempts to exfiltrate user data. Themes are styling assets; they should not behave like applications.
 
 If you can't agree to all three, please don't submit. If you discover that a theme already in the registry violates someone's rights (yours or a third party's), see the takedown process in the main YouCoded [TERMS.md](https://github.com/itsdestin/youcoded/blob/master/TERMS.md).
+
+## Developer Certificate of Origin
+
+Every commit in a pull request must carry a sign-off line:
+
+```
+Signed-off-by: Your Name <you@example.com>
+```
+
+`git commit -s` adds it for you, using the name and email in your git config. This is the [Developer Certificate of Origin](https://developercertificate.org/) — a one-line statement that you have the right to submit the work under this repository's license.
+
+By signing off you confirm that your contribution — the theme itself, any code, and any preview images or other assets — is submitted under the Apache License 2.0 that covers this repository, and that you wrote it or otherwise have the right to submit it under that license (the same terms listed above). There is no separate contributor agreement; the sign-off is the whole of it.
+
+If a commit is missing the sign-off, you'll be asked to add it before the PR is merged — `git commit --amend -s` fixes the last commit, and `git rebase --signoff` fixes a whole branch.
