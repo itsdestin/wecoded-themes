@@ -151,15 +151,22 @@ what makes them read as one character.
 | `welcome` | tall rounded ellipses + sparkle pupils | — | soft filled smile |
 | `curious` | same | one flat, one arched | small "o" |
 | `shocked` | same, ~12% larger | both arched high | open oval |
-| `dizzy` | spirals | — | zigzag, plus two stars beside the head |
+| `dizzy` | crossed lines | — | zigzag, plus two stars beside the head |
 | `idle` | closed, curving **up** (squeezed shut, content) | — | small dot |
 | `blink` | closed, curving **down** (lids dropped) | — | soft smile |
 | `happy` | closed, curving up hard | — | wide open grin |
 | `shutdown` | flat lines | — | short flat line |
 
-- **Eyes are ellipses with a sparkle cluster, never a solid disc.** Three small circles low in the
-  eye — one main, two smaller and fainter — read as a catchlight. Big black discs were tried and
-  rejected as creepy, twice.
+- **Eyes are ellipses with a catchlight, never a solid disc.** Big black discs were tried and
+  rejected as creepy, twice. Two catchlight shapes are in use, and it is a per-character choice:
+  a **sparkle cluster** (three small circles low in the eye — Golden Sunbreak, Halftone) or a
+  **highlight pair** (one large shine high on the inner edge plus a small one low and outside —
+  both cats). The pair reads rounder and cuter; the cluster reads busier and more printed.
+- **Spirals are not an option for `dizzy`.** They were tried and dropped; crossed lines are the
+  house style, and they stay legible at 24 px where a spiral turns to mush.
+- **On a dark body, do not simply flip the face to white.** A large light shape on a dark body
+  reads as a glowing hole rather than an eye. Keep the eye dark and give it a light outline
+  (Halftone), or fill it with a mid-tone clearly lighter than the body.
 - **Wrap each eye's cluster in `<g class="pupil">`** on `welcome`, `curious` and `shocked`. The app
   translates those groups up to ±0.55 units so the eyes follow the cursor; a face without them
   stares straight ahead while its neighbours track. Two per face — one per eye.
