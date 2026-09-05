@@ -27,6 +27,31 @@ Three ways to make a mascot, in ascending effort:
 3. **Generate from scratch** — follow the constraints in the last section; everything the app
    animates comes free as long as the contract is respected.
 
+## Flat variants are DERIVED, not drawn
+
+Desktop renders the rig; **Android and remote browsers render flat art**, because they can't
+fetch `theme-asset://` URLs. Two hand-maintained sets of the same character drift, and when
+they do, half your users see last season's face. So the rig is the source and the flat art is
+a projection of it:
+
+```bash
+node scripts/flatten-rig.mjs [<slug> ...]     # default: every theme that ships a rig
+```
+
+It keeps hats, tails, whiskers and every other decoration — it only decides which face group
+survives. Run it whenever the rig changes; `audit-rigs.mjs` fails a theme whose flat art has
+drifted from its rig, and names the command.
+
+The flat set is exactly **`idle` · `welcome` · `inquisitive` · `shocked`** — the app's
+`MascotVariant` union. `dizzy` is a rig FACE with no flat counterpart; a `"dizzy"` manifest
+key names an asset the app resolves and can never display, and the auditor now rejects it.
+(Two themes carried one for months because an older theme-builder template said to.)
+
+**Flat art is hardcoded hex. Never `currentColor`, never CSS variables.** It renders through
+`<img>`, where `currentColor` resolves to BLACK and variables never resolve at all — measured
+2026-09-05 on a page with `color: #ff0000`, which produced pure `#000000`. Inside a rig they
+do work, because rigs are inlined after sanitizing.
+
 ## The rig contract
 
 One SVG per theme. The app finds parts by `id`:

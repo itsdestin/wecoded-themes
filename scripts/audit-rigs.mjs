@@ -19,6 +19,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatten, FLAT } from './flatten-rig.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CANONICAL_VIEWBOX = '-3 -5 30 30';
@@ -196,6 +197,45 @@ function copyDrift() {
   return out;
 }
 
+// The app's MascotVariant union. A manifest key outside this set names an asset the app can
+// never display: two themes shipped a mascot-dizzy.svg for months because an older version
+// of the theme-builder skill told them to.
+const MASCOT_KEYS = new Set(['rig', ...Object.keys(FLAT)]);
+
+function mascotManifests() {
+  const out = [];
+  const dir = join(ROOT, 'themes');
+  for (const slug of readdirSync(dir)) {
+    const mp = join(dir, slug, 'manifest.json');
+    if (!existsSync(mp)) continue;
+    const mascot = JSON.parse(readFileSync(mp, 'utf8')).mascot;
+    if (!mascot) continue;
+    const errors = [];
+    for (const k of Object.keys(mascot)) {
+      if (!MASCOT_KEYS.has(k)) {
+        errors.push(`manifest mascot."${k}" is not a variant the app can display ` +
+          `(it knows ${[...MASCOT_KEYS].join(', ')}) — that asset is dead weight`);
+      }
+    }
+    // Flat art is DERIVED from the rig. Hand-edited or stale flat art is how desktop and
+    // Android end up showing two different faces for the same character.
+    const rigPath = join(dir, slug, 'assets', 'mascot-rig.svg');
+    if (mascot.rig && existsSync(rigPath)) {
+      const rig = readFileSync(rigPath, 'utf8');
+      for (const v of Object.keys(FLAT)) {
+        if (!mascot[v]) continue;
+        const fp = join(dir, slug, 'assets', `mascot-${v}.svg`);
+        if (!existsSync(fp)) { errors.push(`manifest names mascot."${v}" but the file is not there`); continue; }
+        if (readFileSync(fp, 'utf8') !== flatten(rig, v)) {
+          errors.push(`assets/mascot-${v}.svg does not match the rig — run: node scripts/flatten-rig.mjs ${slug}`);
+        }
+      }
+    }
+    if (errors.length) out.push({ label: `themes/${slug} (manifest)`, errors, warnings: [], ok: false });
+  }
+  return out;
+}
+
 const asJson = process.argv.includes('--json');
 const results = [];
 for (const t of collect()) {
@@ -209,6 +249,7 @@ for (const t of collect()) {
 }
 
 results.push(...copyDrift());
+results.push(...mascotManifests());
 
 if (asJson) {
   console.log(JSON.stringify(results, null, 2));
