@@ -5,10 +5,9 @@ groups the app animates (poses, limb-trailing drag physics, blinking, breathing)
 the mix-and-match source for theme authors and for `/theme-builder` when it generates a mascot
 from scratch.
 
-> **Status:** the app's rig renderer is designed but not yet shipped (see
-> `youcoded-dev/docs/active/specs/2026-07-10-buddy-floater-upgrades-design.md` §3). This folder is
-> the authoring source of truth so mascots built now conform when it lands. Nothing here is
-> scanned by the registry CI.
+> **Status:** shipped. The app renders these rigs, animates the poses, springs the limbs and
+> tracks the cursor. `scripts/audit-rigs.mjs` scans everything in `skins/`, `examples/` and
+> `themes/*/assets/mascot-rig.svg` on every PR.
 
 ## What's in this folder
 
@@ -27,6 +26,31 @@ Three ways to make a mascot, in ascending effort:
    or `strawberry-kitty.rig.svg` for outline/white-body style.
 3. **Generate from scratch** — follow the constraints in the last section; everything the app
    animates comes free as long as the contract is respected.
+
+## Flat variants are DERIVED, not drawn
+
+Desktop renders the rig; **Android and remote browsers render flat art**, because they can't
+fetch `theme-asset://` URLs. Two hand-maintained sets of the same character drift, and when
+they do, half your users see last season's face. So the rig is the source and the flat art is
+a projection of it:
+
+```bash
+node scripts/flatten-rig.mjs [<slug> ...]     # default: every theme that ships a rig
+```
+
+It keeps hats, tails, whiskers and every other decoration — it only decides which face group
+survives. Run it whenever the rig changes; `audit-rigs.mjs` fails a theme whose flat art has
+drifted from its rig, and names the command.
+
+The flat set is exactly **`idle` · `welcome` · `inquisitive` · `shocked`** — the app's
+`MascotVariant` union. `dizzy` is a rig FACE with no flat counterpart; a `"dizzy"` manifest
+key names an asset the app resolves and can never display, and the auditor now rejects it.
+(Two themes carried one for months because an older theme-builder template said to.)
+
+**Flat art is hardcoded hex. Never `currentColor`, never CSS variables.** It renders through
+`<img>`, where `currentColor` resolves to BLACK and variables never resolve at all — measured
+2026-09-05 on a page with `color: #ff0000`, which produced pure `#000000`. Inside a rig they
+do work, because rigs are inlined after sanitizing.
 
 ## The rig contract
 
@@ -48,6 +72,8 @@ One SVG per theme. The app finds parts by `id`:
       <g id="rig-face-shocked" style="display:none">…</g>
       <g id="rig-face-dizzy"   style="display:none">…</g>
       <g id="rig-face-blink"   style="display:none">…</g>
+      <g id="rig-face-happy"   style="display:none">…</g>
+      <g id="rig-face-shutdown" style="display:none">…</g>
       <g id="slot-eyewear"/>
     </g>
     <g id="slot-hat"/>
@@ -64,6 +90,9 @@ One SVG per theme. The app finds parts by `id`:
 - The `viewBox="-3 -5 30 30"` padding leaves headroom for hats (above y 0) and held items
   (right of x 24) while the character itself stays in the classic **24×24 art box**.
 - Every face group except `rig-face-idle` starts `style="display:none"`.
+- **`rig-face-idle` is not the face you see at rest.** It is only the group that paints before
+  the app takes over; the resting pose asks for `welcome`. Draw `idle` as *eyes closed, content*
+  — it plays when the buddy is pressed, and it is the still frame a reduced-effects user sees.
 - `rig-tail` is optional and springs like a limb during drag (Kuromi's tail wags). Pivot where
   it meets the body.
 - Don't draw a ground shadow, and don't add your own animation — poses, drag physics, the
@@ -127,15 +156,52 @@ Reference: the four published mascot themes each ship a companions block (`theme
 ### Faces are paint, not holes
 
 The legacy flat mascots cut eyes out of the body with `fill-rule="evenodd"`. Rigs keep the body
-**solid** and paint eyes on top in a dark socket color (Golden Sunbreak uses `#2a1004`, Halftone
-`#1e2636`) — a swappable face has to be its own group. Blink is the idle face with the eyes drawn
-as closed curves; the app flashes it for ~120 ms every 6–12 s. Anything shared by all expressions
-(whiskers, a nose) is repeated inside each face group so nothing lingers on swap.
+**solid** and paint eyes on top in a face colour — a swappable face has to be its own group.
+Anything shared by all expressions (whiskers, a nose) is repeated inside each face group so
+nothing lingers on swap.
 
-The **curious** face convention: welcome-style eye sockets with a bright sparkle cluster as the
-pupil, wrapped in `<g class="pupil">` — the app translates those groups up to ±0.55 units to make
-the eyes track the cursor. One raised brow + a small "o" mouth. (Dark disc-in-disc pupils were
-tried and rejected as creepy.)
+**The face colour must contrast with the body, and nothing checks it for you.** Halftone Dimension
+shipped a `#1e2636` face on a `#191327` body and was expressionless for months before anyone
+looked: at 80 px a near-black face on a near-black body is not a subtle face, it is no face. It is
+now paper white (`#eef2fa`). Pick the face colour for legibility first and mood second.
+
+### The face grammar
+
+Eight expressions, built from three moving parts — **eyes, brows, mouth**. Keep the eye shape and
+position identical across every open-eyed face; change only what the expression needs. That is
+what makes them read as one character.
+
+| face | eyes | brows | mouth |
+|---|---|---|---|
+| `welcome` | tall rounded ellipses + sparkle pupils | — | soft filled smile |
+| `curious` | same | one flat, one arched | small "o" |
+| `shocked` | same, ~12% larger | both arched high | open oval |
+| `dizzy` | spirals | — | zigzag; nothing floats beside the head |
+| `idle` | closed, curving **up** (squeezed shut, content) | — | small dot |
+| `blink` | closed, curving **down** (lids dropped) | — | soft smile |
+| `happy` | closed, curving up hard | — | wide open grin |
+| `shutdown` | flat lines | — | short flat line |
+
+- **Eyes are ellipses with a catchlight, never a solid disc.** Big black discs were tried and
+  rejected as creepy, twice. Two catchlight shapes are in use, and it is a per-character choice:
+  a **sparkle cluster** (three small circles low in the eye — Golden Sunbreak, Halftone) or a
+  **highlight pair** (one large shine high on the inner edge plus a small one low and outside —
+  both cats). The pair reads rounder and cuter; the cluster reads busier and more printed.
+- **`dizzy` is spirals, and nothing floats beside the head.** The spirals came with the warm
+  set; what was dropped is the pair of closed loops that used to sit either side of the head —
+  they read as debris rather than dizziness, and they collide with hats and ears. Crossed
+  lines are the older, pre-warm-set design.
+- **On a dark body, do not simply flip the face to white.** A large light shape on a dark body
+  reads as a glowing hole rather than an eye. Keep the eye dark and give it a light outline
+  (Halftone), or fill it with a mid-tone clearly lighter than the body.
+- **Wrap each eye's cluster in `<g class="pupil">`** on `welcome`, `curious` and `shocked`. The app
+  translates those groups up to ±0.55 units so the eyes follow the cursor; a face without them
+  stares straight ahead while its neighbours track. Two per face — one per eye.
+- **Closed eyes are strokes, and the curve direction is the whole mood.** Up = content, down =
+  a blink, flat = powered down. Same three paths, three different characters.
+- Blink is flashed for ~120 ms every 6–12 s, so it must sit comfortably next to `welcome`.
+- The theme's own identity belongs *inside* this grammar, not next to it: Halftone's sparkle
+  cluster is its CMYK misregistration dot, and the two cats' clusters are plain white.
 
 ### Component slots
 
@@ -195,10 +261,9 @@ character that is still unmistakably the YouCoded buddy.**
 - Stubby limbs at the canonical spots: arms ≈ x 1–4 and x 20–23, y 9–13; legs ≈ x 7.2–10.7 and
   x 13.3–16.8, y 17–21. Small shape liberties (rounded ends, mitten hands) are fine; positions and
   proportions are not.
-- The full rig contract above: group ids, pivots, all six faces, slots present (empty is fine).
-- Eye grammar per expression: idle = `><` squint · welcome = tall sockets with sparkles ·
-  curious = sockets with tracking sparkle-pupils + raised brow · shocked = wide rounds + O mouth ·
-  dizzy = X X + zigzag mouth · blink = closed curves.
+- The full rig contract above: group ids, pivots, all eight faces, slots present (empty is fine).
+- The face grammar in the next section — it is what makes eight different drawings read as one
+  character rather than eight moods pasted together.
 
 **Choose freely:**
 - One of the six approved skins, or an original treatment in their spirit.

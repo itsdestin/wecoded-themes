@@ -19,6 +19,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { flatten, FLAT } from './flatten-rig.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CANONICAL_VIEWBOX = '-3 -5 30 30';
@@ -37,9 +38,30 @@ const OPTIONAL_LIMBS = [{ id: 'rig-tail', pivot: '19 14' }];
 // names exactly these faces; a rig missing one falls back to whatever is showing,
 // so the buddy just never reacts.
 const FACES = ['idle', 'welcome', 'curious', 'shocked', 'dizzy', 'blink'];
-const HIDDEN_FACES = FACES.filter((f) => f !== 'idle'); // idle is the one that starts visible
+// Added with the warm face set (2026-09-05). The app falls back to a near face when one of
+// these is absent, so it warns rather than fails — but every rig we ship should have both.
+const EXTRA_FACES = ['happy', 'shutdown'];
+// The eyes only follow the cursor inside a <g class="pupil">, and there must be one per eye.
+// A face without them is a rig whose gaze is nailed straight ahead.
+const TRACKING_FACES = ['welcome', 'curious', 'shocked'];
+const HIDDEN_FACES = [...FACES, ...EXTRA_FACES].filter((f) => f !== 'idle'); // idle is the one that starts visible
 const PEEK_HANDS = ['rig-hand-peek-left', 'rig-hand-peek-right'];
 const SLOTS = ['slot-hat', 'slot-eyewear', 'slot-item'];
+
+/** Everything between a group's opening tag and its matching close, by depth count. */
+function groupBody(svg, id) {
+  const open = svg.search(new RegExp(`<g\\b[^>]*\\bid="${id}"`));
+  if (open < 0) return '';
+  let i = svg.indexOf('>', open) + 1, depth = 1;
+  const start = i;
+  while (i < svg.length && depth > 0) {
+    const nextOpen = svg.indexOf('<g', i), nextClose = svg.indexOf('</g>', i);
+    if (nextClose < 0) break;
+    if (nextOpen >= 0 && nextOpen < nextClose) { depth++; i = nextOpen + 2; }
+    else { depth--; if (depth === 0) return svg.slice(start, nextClose); i = nextClose + 4; }
+  }
+  return svg.slice(start, i);
+}
 
 /** Opening tag that carries id="<id>", or null. Rigs are authored SVG, not
  *  arbitrary XML — a targeted tag match beats pulling in a DOM dependency. */
@@ -84,13 +106,24 @@ export function auditRig(svg, label) {
     else if (got.trim().replace(/\s+/g, ' ') !== pivot) W(`#${id} pivot is "${got}" — canonical is "${pivot}"`);
   }
 
-  for (const face of FACES) {
+  for (const face of [...FACES, ...EXTRA_FACES]) {
     const id = `rig-face-${face}`;
     const tag = tagWithId(svg, id);
-    if (!tag) { E(`missing #${id}`); continue; }
+    if (!tag) {
+      if (EXTRA_FACES.includes(face)) W(`missing #${id} — the app will substitute a near face, but this one never plays`);
+      else E(`missing #${id}`);
+      continue;
+    }
     // Every face but idle must start hidden, or two faces paint at once.
     if (HIDDEN_FACES.includes(face) && !isHidden(tag)) E(`#${id} must start style="display:none"`);
-    if (face === 'idle' && isHidden(tag)) E('#rig-face-idle must NOT start hidden — it is the resting face');
+    // #rig-face-idle is the group that paints before any script runs — it is NOT the face
+    // shown at rest (the resting pose asks for `welcome`). Draw it as eyes-closed-content.
+    if (face === 'idle' && isHidden(tag)) E('#rig-face-idle must NOT start hidden — it paints before the app takes over');
+    if (TRACKING_FACES.includes(face)) {
+      const body = groupBody(svg, id);
+      const pupils = (body.match(/class="pupil"/g) ?? []).length;
+      if (pupils < 2) W(`#${id} has ${pupils} <g class="pupil"> of 2 — the eyes will not follow the cursor on this face`);
+    }
   }
 
   for (const id of PEEK_HANDS) {
@@ -134,13 +167,73 @@ function collect() {
     }
     targets.push({ label: `themes/${slug}`, path: rig });
   }
-  const examples = join(ROOT, 'mascots', 'examples');
-  if (existsSync(examples)) {
-    for (const f of readdirSync(examples).filter((f) => f.endsWith('.svg'))) {
-      targets.push({ label: `mascots/examples/${basename(f)}`, path: join(examples, f) });
+  // skins/ AND examples/ are both "start from this and recolour" material, so an
+  // out-of-date face set there leaks into every theme built afterwards — audit both.
+  for (const dir of ['examples', 'skins']) {
+    const d = join(ROOT, 'mascots', dir);
+    if (!existsSync(d)) continue;
+    for (const f of readdirSync(d).filter((f) => f.endsWith('.svg'))) {
+      targets.push({ label: `mascots/${dir}/${basename(f)}`, path: join(d, f) });
     }
   }
   return targets;
+}
+
+// mascots/examples/<slug>.rig.svg is a copy of the theme's shipped rig, kept so the library
+// reads as a complete set. Copies drift silently: check them instead of trusting them.
+function copyDrift() {
+  const out = [];
+  const dir = join(ROOT, 'mascots', 'examples');
+  if (!existsSync(dir)) return out;
+  for (const f of readdirSync(dir).filter((f) => f.endsWith('.rig.svg'))) {
+    const slug = basename(f, '.rig.svg');
+    const shipped = join(ROOT, 'themes', slug, 'assets', 'mascot-rig.svg');
+    if (!existsSync(shipped)) continue;
+    if (readFileSync(join(dir, f), 'utf8') !== readFileSync(shipped, 'utf8')) {
+      out.push({ label: `mascots/examples/${f}`, ok: false, warnings: [],
+        errors: [`differs from themes/${slug}/assets/mascot-rig.svg — the example is a copy, so update both`] });
+    }
+  }
+  return out;
+}
+
+// The app's MascotVariant union. A manifest key outside this set names an asset the app can
+// never display: two themes shipped a mascot-dizzy.svg for months because an older version
+// of the theme-builder skill told them to.
+const MASCOT_KEYS = new Set(['rig', ...Object.keys(FLAT)]);
+
+function mascotManifests() {
+  const out = [];
+  const dir = join(ROOT, 'themes');
+  for (const slug of readdirSync(dir)) {
+    const mp = join(dir, slug, 'manifest.json');
+    if (!existsSync(mp)) continue;
+    const mascot = JSON.parse(readFileSync(mp, 'utf8')).mascot;
+    if (!mascot) continue;
+    const errors = [];
+    for (const k of Object.keys(mascot)) {
+      if (!MASCOT_KEYS.has(k)) {
+        errors.push(`manifest mascot."${k}" is not a variant the app can display ` +
+          `(it knows ${[...MASCOT_KEYS].join(', ')}) — that asset is dead weight`);
+      }
+    }
+    // Flat art is DERIVED from the rig. Hand-edited or stale flat art is how desktop and
+    // Android end up showing two different faces for the same character.
+    const rigPath = join(dir, slug, 'assets', 'mascot-rig.svg');
+    if (mascot.rig && existsSync(rigPath)) {
+      const rig = readFileSync(rigPath, 'utf8');
+      for (const v of Object.keys(FLAT)) {
+        if (!mascot[v]) continue;
+        const fp = join(dir, slug, 'assets', `mascot-${v}.svg`);
+        if (!existsSync(fp)) { errors.push(`manifest names mascot."${v}" but the file is not there`); continue; }
+        if (readFileSync(fp, 'utf8') !== flatten(rig, v)) {
+          errors.push(`assets/mascot-${v}.svg does not match the rig — run: node scripts/flatten-rig.mjs ${slug}`);
+        }
+      }
+    }
+    if (errors.length) out.push({ label: `themes/${slug} (manifest)`, errors, warnings: [], ok: false });
+  }
+  return out;
 }
 
 const asJson = process.argv.includes('--json');
@@ -154,6 +247,9 @@ for (const t of collect()) {
   if (t.orphan) r.warnings.unshift('ships a mascot-rig.svg but the manifest has no mascot.rig key — the app will never load it');
   results.push(r);
 }
+
+results.push(...copyDrift());
+results.push(...mascotManifests());
 
 if (asJson) {
   console.log(JSON.stringify(results, null, 2));
