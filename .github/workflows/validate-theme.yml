@@ -17,6 +17,31 @@ jobs:
           THEMES=$(git diff --name-only ${{ github.event.pull_request.base.sha }} ${{ github.sha }} | grep '^themes/' | cut -d'/' -f2 | sort -u)
           echo "themes=$THEMES" >> $GITHUB_OUTPUT
 
+      # A content change with no version bump is invisible to anyone who already installed
+      # the theme: the app compares versions, sees no change, and shows "Installed" forever.
+      # The whole warm-mascot rebuild (PR #29) went in without a single bump — nobody caught
+      # it because nothing checked.
+      - name: Every changed theme bumped its version
+        run: |
+          BASE=${{ github.event.pull_request.base.sha }}
+          FAIL=0
+          for slug in ${{ steps.changed.outputs.themes }}; do
+            MANIFEST="themes/$slug/manifest.json"
+            [ -f "$MANIFEST" ] || continue
+            OLD=$(git show "$BASE:$MANIFEST" 2>/dev/null \
+                  | python3 -c 'import json,sys; print(json.load(sys.stdin).get("version","1.0.0"))' 2>/dev/null || echo "")
+            # No manifest at BASE means a brand-new theme — nothing to bump against.
+            [ -z "$OLD" ] && { echo "$slug: new theme"; continue; }
+            NEW=$(python3 -c 'import json; print(json.load(open("'"$MANIFEST"'")).get("version","1.0.0"))')
+            if [ "$OLD" = "$NEW" ]; then
+              echo "::error file=$MANIFEST::$slug changed but its version is still '$NEW' — bump it or installed users never get the update"
+              FAIL=1
+            else
+              echo "$slug: $OLD -> $NEW"
+            fi
+          done
+          exit $FAIL
+
       - name: Validate manifests
         run: |
           for slug in ${{ steps.changed.outputs.themes }}; do
