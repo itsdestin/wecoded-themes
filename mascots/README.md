@@ -163,7 +163,9 @@ nothing lingers on swap.
 **The face colour must contrast with the body, and nothing checks it for you.** Halftone Dimension
 shipped a `#1e2636` face on a `#191327` body and was expressionless for months before anyone
 looked: at 80 px a near-black face on a near-black body is not a subtle face, it is no face. It is
-now paper white (`#eef2fa`). Pick the face colour for legibility first and mood second.
+now a violet eye fill (`#33265c`) with a cyan rim (`#00b8ff`), not paper white.
+
+Mascot art is not UI button inversion. Choose body, face and catchlights independently: pale or warm bodies with dark eyes and bright catches, or dark bodies with readable mid-tone/rimmed eyes, are valid. No pastel-only mandate. Keep lighting restrained and limit signature details to one or two. Check face/body readability separately from silhouette/background readability at actual 24 / 48 / 80 / 112 px across all eight expressions, against theme surfaces and representative wallpapers/game skies. Preserve the generator's geometry.
 
 ### The face grammar
 
@@ -221,8 +223,10 @@ each other's.
 Rigs are inlined into the app (after sanitizing), so CSS variables resolve — unlike the legacy
 `<img>` path, where `currentColor` silently renders black.
 
-- `var(--rig-accent, <fallback>)` — theme accent; default body tint for generated mascots.
-- `var(--rig-on-accent, <fallback>)` — face color on accent-tinted bodies.
+These variables are a transport contract, not a recommended art palette. Authored, independent body/face/catchlight colors are encouraged; do not copy button inversion by default.
+
+- `var(--rig-accent, <fallback>)` — transports the theme accent for rigs that opt into it.
+- `var(--rig-on-accent, <fallback>)` — transports the theme's on-accent token, not a face-color recommendation.
 - `var(--rig-line, <fallback>)` — outline color for white-body mascots (theme `fg`).
 - Hardcoded colors are encouraged where they ARE the identity (Golden Sunbreak's `#f0a828`
   amber, Kuromi's `#FF4FB8` pink). Always include a fallback so the file previews standalone.
@@ -267,15 +271,15 @@ character that is still unmistakably the YouCoded buddy.**
 
 **Choose freely:**
 - One of the six approved skins, or an original treatment in their spirit.
-- Palette: derive from the theme's tokens (`accent` body / `on-accent` face is the default), or
-  hardcode a signature color the way Golden Sunbreak does.
+- Palette: choose independent body, face and catchlight colors that suit the theme;
+  tokens are optional inputs, not a button-color recipe. Signature hex colors are welcome.
 - One or two per-theme flourishes: a scene companion (sun + dust motes — see the companions
   section above; never static scenery), body texture (halftone dots, chromatic ghost lines),
   or a signature component pre-filled into a slot (ears, jester peaks, visor). More than two
   reads as noise.
 
 **Quality bar:**
-- Must read at 24 px (the buddy renders around 80 px; details under ~0.3 units vanish).
-- Face must contrast with the body ≥ roughly `on-accent`-on-`accent` levels; body must be
-  visible against both the theme's `canvas` and arbitrary desktop wallpapers.
+- Review all eight expressions at actual 24 / 48 / 80 / 112 px; details under ~0.3 units vanish at small sizes.
+- Judge face/body readability and silhouette/background separation independently, on theme
+  surfaces and representative wallpapers/game skies. UI button contrast is not the art test.
 - Every face group looks intentional standing still — reduced-effects users never see motion.
