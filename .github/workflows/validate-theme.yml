@@ -221,3 +221,13 @@ jobs:
       - name: Audit mascot rig contract
         run: |
           node scripts/audit-rigs.mjs
+
+      # Drawing safety (2026-09-10): mascots and companions are drawn INTO the app's
+      # page, so a drawing must carry nothing that could run code and must ship inside
+      # the theme, never load from a web address. BLOCKING: every published drawing
+      # passes. The self-test runs first so a check loosened by accident fails loudly
+      # instead of passing everything. The app cleans drawings too — this is the
+      # second layer, not the only one.
+      - name: Audit drawing safety
+        run: |
+          node scripts/audit-svg-safety.mjs --self-test
