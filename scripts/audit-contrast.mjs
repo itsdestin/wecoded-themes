@@ -26,8 +26,8 @@
 // background image, so the colour under the text is a composite, not the token.
 // Decoding a JPEG in CI without dependencies isn't practical, so the builder
 // precomputes the wallpaper's average into `background.average-color` and this
-// script reads it. A wallpaper theme missing that field is audited flat and
-// WARNS, because a flat audit of a glass theme is the exact blind spot above.
+// script reads it. A wallpaper theme missing that field FAILS, because a flat
+// audit of a glass theme cannot certify its actual text contrast.
 //
 // Run from the repo root:
 //   node scripts/audit-contrast.mjs
@@ -64,35 +64,36 @@ function loadThemes() {
 
 const themes = loadThemes();
 const failing = [];
-const warnings = [];
 
 for (const { slug, manifest } of themes) {
   const bg = manifest.background || {};
   const panelsOpacity = typeof bg['panels-opacity'] === 'number' ? bg['panels-opacity'] : 1;
   const averageColor = bg['average-color'] || null;
 
-  // A translucent theme with no precomputed average would be audited against a
-  // surface the app never paints. Say so rather than reporting a clean pass.
-  const needsGlass = panelsOpacity < 1 && (bg.type === 'image' || bg.type === 'gradient');
-  if (needsGlass && !averageColor) {
-    warnings.push(
-      `${slug}: panels-opacity ${panelsOpacity} but no background.average-color — ` +
-        `audited against FLAT tokens, which understates the real ratios. ` +
-        `Re-run the theme-builder to populate it.`,
-    );
-  }
+  // WHY: A flat-token pass cannot certify contrast over a translucent wallpaper;
+  // fail closed until the theme declares the background colour used for compositing.
+  // A mistyped/missing `type` must not make an actual image path look like flat
+  // paint; all registry wallpaper paths live under assets/.
+  const wallpaperValue = typeof bg.value === 'string' && (
+    bg.value.startsWith('assets/') || bg.value.startsWith('data:image/') || bg.value.includes('gradient(')
+  );
+  const needsGlass = panelsOpacity < 1 && (bg.type === 'image' || bg.type === 'gradient' || wallpaperValue);
+  const missingAverage = needsGlass && !averageColor;
 
   const { results, hardFails, surfaceFails, softWarns, glassAware } = rules.evaluate(
     manifest.tokens,
     { wallpaperAvg: averageColor, panelsOpacity },
   );
 
-  const blocking = hardFails + surfaceFails;
+  const blocking = hardFails + surfaceFails + Number(missingAverage);
   if (blocking > 0) failing.push(slug);
 
   const mark = blocking > 0 ? '❌' : '✓';
   const glassNote = glassAware ? ` [glass ${Math.round(panelsOpacity * 100)}% over ${averageColor}]` : '';
   console.log(`\n${mark} ${slug}${glassNote}`);
+  if (missingAverage) {
+    console.log(`    ✗ HARD    ${slug}: panels-opacity ${panelsOpacity} but no background.average-color — cannot certify text over the wallpaper; re-run the theme-builder to populate it.`);
+  }
 
   for (const tier of ['HARD', 'SURFACE', 'SOFT']) {
     for (const r of results[tier]) {
@@ -112,7 +113,6 @@ for (const { slug, manifest } of themes) {
 }
 
 console.log('\n────────────────────────────────────────');
-for (const w of warnings) console.log(`⚠ ${w}`);
 
 if (failing.length === 0) {
   console.log(`All ${themes.length} themes pass HARD and SURFACE checks.`);
