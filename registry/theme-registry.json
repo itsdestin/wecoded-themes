@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-06T03:11:15.593599+00:00",
+  "generatedAt": "2026-09-23T03:53:31.056336+00:00",
   "themes": [
     {
       "slug": "cotton-candy-sky",
@@ -20,7 +20,7 @@
       },
       "version": "1.1.0",
       "created": "2026-06-19",
-      "updated": "2026-09-06",
+      "updated": "2026-09-23",
       "source": "community",
       "features": [
         "wallpaper",
@@ -60,7 +60,7 @@
       },
       "version": "1.1.0",
       "created": "2026-04-12",
-      "updated": "2026-09-06",
+      "updated": "2026-09-23",
       "source": "community",
       "features": [
         "wallpaper",
@@ -99,7 +99,7 @@
       },
       "version": "1.3.0",
       "created": "2026-03-28",
-      "updated": "2026-09-06",
+      "updated": "2026-09-23",
       "source": "youcoded-core",
       "features": [
         "wallpaper",
@@ -146,7 +146,7 @@
       },
       "version": "1.3.0",
       "created": "2026-04-05",
-      "updated": "2026-09-06",
+      "updated": "2026-09-23",
       "source": "community",
       "features": [
         "glassmorphism",
@@ -190,7 +190,7 @@
       },
       "version": "1.3.0",
       "created": "2026-04-12",
-      "updated": "2026-09-06",
+      "updated": "2026-09-23",
       "source": "community",
       "features": [
         "wallpaper",
@@ -234,7 +234,7 @@
       },
       "version": "1.1.0",
       "created": "2026-06-19",
-      "updated": "2026-09-06",
+      "updated": "2026-09-23",
       "source": "community",
       "features": [
         "wallpaper",
@@ -256,6 +256,46 @@
       "contentHash": "sha256:168d293f2304c089afb639d1087c2c57c65c82db4776d36955bcec3dfc3a4ff1"
     },
     {
+      "slug": "morning-rounds",
+      "name": "Morning Rounds",
+      "author": "itsdestin",
+      "dark": false,
+      "description": "Warm paper and carnelian, with an illustrated dog and cat in scrubs. A daylight theme for vet students — the buddy is the dog from the picture.",
+      "preview": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/preview.png",
+      "previewTokens": {
+        "canvas": "#FAF6F0",
+        "panel": "#F3EDE3",
+        "accent": "#B31B1B",
+        "on-accent": "#FFFFFF",
+        "fg": "#2A2320",
+        "fg-muted": "#7D7268",
+        "edge": "#CBBFAE"
+      },
+      "version": "1.0.0",
+      "created": "2026-09-21",
+      "updated": "2026-09-23",
+      "source": "youcoded-core",
+      "features": [
+        "wallpaper",
+        "glassmorphism",
+        "particles",
+        "custom-font",
+        "mascot",
+        "custom-css"
+      ],
+      "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/manifest.json",
+      "assetUrls": {
+        "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-idle.svg",
+        "assets/mascot-inquisitive.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-inquisitive.svg",
+        "assets/mascot-rig.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-rig.svg",
+        "assets/mascot-shocked.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-shocked.svg",
+        "assets/mascot-welcome.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-welcome.svg",
+        "assets/wallpaper-b.jpg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/wallpaper-b.jpg",
+        "assets/wallpaper-terminal.webp": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/wallpaper-terminal.webp"
+      },
+      "contentHash": null
+    },
+    {
       "slug": "strawberry-kitty",
       "name": "Strawberry Kitty",
       "author": "claude",
@@ -273,7 +313,7 @@
       },
       "version": "1.3.0",
       "created": "2026-04-12",
-      "updated": "2026-09-06",
+      "updated": "2026-09-23",
       "source": "community",
       "features": [
         "wallpaper",
