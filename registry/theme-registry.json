@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-23T03:53:31.056336+00:00",
+  "generatedAt": "2026-09-23T05:17:17.256310+00:00",
   "themes": [
     {
       "slug": "cotton-candy-sky",
@@ -271,7 +271,7 @@
         "fg-muted": "#7D7268",
         "edge": "#CBBFAE"
       },
-      "version": "1.0.0",
+      "version": "1.0.1",
       "created": "2026-09-21",
       "updated": "2026-09-23",
       "source": "youcoded-core",
