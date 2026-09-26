@@ -1,7 +1,7 @@
 {
   "name": "wecoded-themes-repo",
   "version": "1.0.0",
-  "description": "Community theme registry for [YouCoded](https://github.com/itsdestin/youcoded-core).",
+  "description": "Community theme registry for [YouCoded](https://github.com/itsdestin/youcoded).",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
