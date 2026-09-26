@@ -3,7 +3,14 @@
 // an empty slug list and silently skip every manifest/asset/version check.
 import { execFileSync } from 'node:child_process';
 
-const [base, head] = process.argv.slice(2);
+// WHY --installed-content: preview.png never reaches an installed theme (the app downloads
+// only the registry's assetUrls, and build-registry.py leaves the preview out of those), so a
+// preview-only change needs no version bump. Only the bump check uses this flag; every other
+// check still sees the preview change. Without it, a preview refresh forced a pointless
+// "Update available" on every installed copy (PR #35, 2026-09-25).
+const args = process.argv.slice(2);
+const installedOnly = args.includes('--installed-content');
+const [base, head] = args.filter((a) => a !== '--installed-content');
 if (![base, head].every((sha) => /^[0-9a-f]{40}$/.test(sha || ''))) {
   console.error('Expected base and head commit SHAs from the pull request event.');
   process.exit(1);
@@ -28,6 +35,7 @@ for (const path of names.trim().split('\n').filter(Boolean)) {
     console.error(`Invalid changed theme directory: ${path}`);
     process.exit(1);
   }
+  if (installedOnly && path === `themes/${slug}/preview.png`) continue;
   slugs.add(slug);
 }
 // WHY: This workflow also runs for validator-only PRs. An empty theme list is
