@@ -427,6 +427,11 @@ async function generatePreview(browser, slug, themesDir) {
   // finalize, and regenerating here in CI would just churn the file.
   // FORCE_REGENERATE_PREVIEWS=1 (or the workflow_dispatch input) is the
   // escape hatch when the mockup template changes and a full sweep is needed.
+  // CAUTION (2026-09-24): the committed previews are now screenshots of the REAL
+  // app, taken by youcoded-dev's scripts/ui-review/theme-previews.py. A forced
+  // sweep here replaces them with this script's mock page — re-run that script
+  // instead when previews need refreshing. This script still makes the preview
+  // for a NEW theme that arrives without one.
   const force = process.env.FORCE_REGENERATE_PREVIEWS === '1';
   if (!force && fs.existsSync(outputPath)) {
     const previewMtime = fs.statSync(outputPath).mtimeMs;

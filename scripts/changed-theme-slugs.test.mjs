@@ -74,3 +74,41 @@ test('changed theme detection fails closed on shallow history and validates a fe
     rmSync(root, { recursive: true, force: true });
   }
 });
+
+// WHY: preview.png never reaches an installed theme, so the version-bump check must not
+// demand a bump for it — but any other file in the same theme still must (PR #35, 2026-09-25).
+test('--installed-content drops preview-only themes and keeps real content changes', () => {
+  const root = mkdtempSync(join(tmpdir(), 'theme-preview-only-'));
+  try {
+    for (const slug of ['pic-only', 'real-change']) mkdirSync(join(root, 'themes', slug), { recursive: true });
+    git(root, 'init', '-q', '-b', 'main');
+    git(root, 'config', 'user.name', 'Fixture');
+    git(root, 'config', 'user.email', 'fixture@example.test');
+    for (const slug of ['pic-only', 'real-change']) {
+      writeFileSync(join(root, 'themes', slug, 'manifest.json'), '{}\n');
+      writeFileSync(join(root, 'themes', slug, 'preview.png'), 'old');
+    }
+    git(root, 'add', 'themes');
+    git(root, 'commit', '-qm', 'base');
+    const base = git(root, 'rev-parse', 'HEAD');
+    writeFileSync(join(root, 'themes', 'pic-only', 'preview.png'), 'new');
+    writeFileSync(join(root, 'themes', 'real-change', 'preview.png'), 'new');
+    writeFileSync(join(root, 'themes', 'real-change', 'manifest.json'), '{"x":1}\n');
+    git(root, 'commit', '-qam', 'change');
+    const head = git(root, 'rev-parse', 'HEAD');
+
+    const all = spawnSync(process.execPath, [checker, base, head], { cwd: root, encoding: 'utf8' });
+    assert.equal(all.status, 0, all.stderr);
+    assert.equal(all.stdout.trim(), 'pic-only real-change', 'every other check still sees preview changes');
+
+    const bump = spawnSync(process.execPath, [checker, '--installed-content', base, head], { cwd: root, encoding: 'utf8' });
+    assert.equal(bump.status, 0, bump.stderr);
+    assert.equal(bump.stdout.trim(), 'real-change');
+
+    const workflow = readFileSync(join(repo, '.github', 'workflows', 'validate-theme.yml'), 'utf8');
+    assert.match(workflow, /BUMP=\$\(node scripts\/changed-theme-slugs\.mjs --installed-content/);
+    assert.match(workflow, /for slug in \$\{\{ steps\.changed\.outputs\.bump_themes \}\}/);
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
