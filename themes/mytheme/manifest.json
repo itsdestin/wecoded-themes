@@ -1,0 +1,11 @@
+{
+  "name": "My Theme",
+  "slug": "mytheme",
+  "dark": true,
+  "author": "smoke",
+  "tokens": {
+    "canvas": "#111",
+    "accent": "#0af"
+  },
+  "contentHash": "sha256:dcecb572ef81134e2c2809458fa3d29f6c9293a3c4218f4cc365c3cccd6b3a7c"
+}
