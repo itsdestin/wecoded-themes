@@ -1,7 +1,7 @@
 {
   "name": "Morning Rounds",
   "slug": "morning-rounds",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "dark": false,
   "author": "itsdestin",
   "created": "2026-09-21",
@@ -65,5 +65,13 @@
     "shocked": "assets/mascot-shocked.svg",
     "rig": "assets/mascot-rig.svg"
   },
-  "custom_css": "::selection { background: rgba(179, 27, 27, 0.28); color: var(--fg); } [data-theme=\"morning-rounds\"] button:focus-visible, [data-theme=\"morning-rounds\"] a:focus-visible, [data-theme=\"morning-rounds\"] select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; box-shadow: 0 0 8px rgba(179, 27, 27, 0.3); }"
+  "custom_css": "::selection { background: rgba(179, 27, 27, 0.28); color: var(--fg); } [data-theme=\"morning-rounds\"] button:focus-visible, [data-theme=\"morning-rounds\"] a:focus-visible, [data-theme=\"morning-rounds\"] select:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; box-shadow: 0 0 8px rgba(179, 27, 27, 0.3); }",
+  "appIcon": "assets/app-icon/app.png",
+  "appIconVariants": {
+    "windows": "assets/app-icon/app.ico",
+    "macGlass": "assets/app-icon/glass.png",
+    "tray": "assets/app-icon/tray.png",
+    "trayAlert": "assets/app-icon/tray-alert.png",
+    "hiDpi": ["assets/app-icon/tray@2x.png", "assets/app-icon/tray-alert@2x.png"]
+  }
 }
