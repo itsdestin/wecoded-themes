@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-26T05:53:58.803183+00:00",
+  "generatedAt": "2026-10-05T06:38:29.477826+00:00",
   "themes": [
     {
       "slug": "cotton-candy-sky",
@@ -20,7 +20,7 @@
       },
       "version": "1.1.0",
       "created": "2026-06-19",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "community",
       "features": [
         "wallpaper",
@@ -58,9 +58,9 @@
         "fg-muted": "#A28E6D",
         "edge": "#7A3048"
       },
-      "version": "1.1.0",
+      "version": "1.2.0",
       "created": "2026-04-12",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "community",
       "features": [
         "wallpaper",
@@ -72,6 +72,13 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/manifest.json",
       "assetUrls": {
+        "assets/app-icon/app.ico": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/app-icon/app.ico",
+        "assets/app-icon/app.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/app-icon/app.png",
+        "assets/app-icon/glass.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/app-icon/glass.png",
+        "assets/app-icon/tray-alert.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/app-icon/tray-alert.png",
+        "assets/app-icon/tray-alert@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/app-icon/tray-alert@2x.png",
+        "assets/app-icon/tray.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/app-icon/tray.png",
+        "assets/app-icon/tray@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/app-icon/tray@2x.png",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/mascot-idle.svg",
         "assets/mascot-inquisitive.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/mascot-inquisitive.svg",
         "assets/mascot-rig.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/mascot-rig.svg",
@@ -79,7 +86,7 @@
         "assets/mascot-welcome.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/mascot-welcome.svg",
         "assets/wallpaper.jpg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/devils-garden/assets/wallpaper.jpg"
       },
-      "contentHash": "sha256:fb2a7a0b1bc9e20f595d35314feb6a2ff4e593043669933faab0c30f8682a6fa"
+      "contentHash": "sha256:fa7a394368d47ffc92cf0af207df58610bf1e160bbae3181e4c7bc20f5bdfba4"
     },
     {
       "slug": "golden-sunbreak",
@@ -97,9 +104,9 @@
         "fg-muted": "#917950",
         "edge": "#3C3223"
       },
-      "version": "1.3.0",
+      "version": "1.4.0",
       "created": "2026-03-28",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "youcoded-core",
       "features": [
         "wallpaper",
@@ -111,6 +118,13 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/manifest.json",
       "assetUrls": {
+        "assets/app-icon/app.ico": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/app-icon/app.ico",
+        "assets/app-icon/app.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/app-icon/app.png",
+        "assets/app-icon/glass.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/app-icon/glass.png",
+        "assets/app-icon/tray-alert.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/app-icon/tray-alert.png",
+        "assets/app-icon/tray-alert@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/app-icon/tray-alert@2x.png",
+        "assets/app-icon/tray.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/app-icon/tray.png",
+        "assets/app-icon/tray@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/app-icon/tray@2x.png",
         "assets/companions/mote-amber.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/companions/mote-amber.svg",
         "assets/companions/mote-pale.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/companions/mote-pale.svg",
         "assets/companions/mote-soft.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/golden-sunbreak/assets/companions/mote-soft.svg",
@@ -144,9 +158,9 @@
         "fg-muted": "#7468A0",
         "edge": "#372D56"
       },
-      "version": "1.3.0",
+      "version": "1.4.0",
       "created": "2026-04-05",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "community",
       "features": [
         "glassmorphism",
@@ -157,6 +171,13 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/manifest.json",
       "assetUrls": {
+        "assets/app-icon/app.ico": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/app-icon/app.ico",
+        "assets/app-icon/app.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/app-icon/app.png",
+        "assets/app-icon/glass.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/app-icon/glass.png",
+        "assets/app-icon/tray-alert.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/app-icon/tray-alert.png",
+        "assets/app-icon/tray-alert@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/app-icon/tray-alert@2x.png",
+        "assets/app-icon/tray.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/app-icon/tray.png",
+        "assets/app-icon/tray@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/app-icon/tray@2x.png",
         "assets/companions/bar-cyan.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/companions/bar-cyan.svg",
         "assets/companions/bar-red.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/companions/bar-red.svg",
         "assets/companions/ghost.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/halftone-dimension/assets/companions/ghost.svg",
@@ -188,9 +209,9 @@
         "fg-muted": "#65507F",
         "edge": "#8466A8"
       },
-      "version": "1.3.0",
+      "version": "1.4.0",
       "created": "2026-04-12",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "community",
       "features": [
         "wallpaper",
@@ -202,6 +223,13 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/manifest.json",
       "assetUrls": {
+        "assets/app-icon/app.ico": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/app-icon/app.ico",
+        "assets/app-icon/app.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/app-icon/app.png",
+        "assets/app-icon/glass.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/app-icon/glass.png",
+        "assets/app-icon/tray-alert.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/app-icon/tray-alert.png",
+        "assets/app-icon/tray-alert@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/app-icon/tray-alert@2x.png",
+        "assets/app-icon/tray.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/app-icon/tray.png",
+        "assets/app-icon/tray@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/app-icon/tray@2x.png",
         "assets/companions/spark-pink-soft.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/companions/spark-pink-soft.svg",
         "assets/companions/spark-pink.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/companions/spark-pink.svg",
         "assets/companions/spark-white.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/kuromi-dreamer/assets/companions/spark-white.svg",
@@ -232,9 +260,9 @@
         "fg-muted": "#465B4E",
         "edge": "#8FB191"
       },
-      "version": "1.1.0",
+      "version": "1.2.0",
       "created": "2026-06-19",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "community",
       "features": [
         "wallpaper",
@@ -245,6 +273,13 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/manifest.json",
       "assetUrls": {
+        "assets/app-icon/app.ico": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/app-icon/app.ico",
+        "assets/app-icon/app.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/app-icon/app.png",
+        "assets/app-icon/glass.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/app-icon/glass.png",
+        "assets/app-icon/tray-alert.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/app-icon/tray-alert.png",
+        "assets/app-icon/tray-alert@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/app-icon/tray-alert@2x.png",
+        "assets/app-icon/tray.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/app-icon/tray.png",
+        "assets/app-icon/tray@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/app-icon/tray@2x.png",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/mascot-idle.svg",
         "assets/mascot-inquisitive.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/mascot-inquisitive.svg",
         "assets/mascot-rig.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/mascot-rig.svg",
@@ -253,7 +288,7 @@
         "assets/wallpaper-terminal.webp": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/wallpaper-terminal.webp",
         "assets/wallpaper.jpg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/meadow-mist/assets/wallpaper.jpg"
       },
-      "contentHash": "sha256:168d293f2304c089afb639d1087c2c57c65c82db4776d36955bcec3dfc3a4ff1"
+      "contentHash": "sha256:84855911c8c27afb3ae672ca914928a43ad6bd87a3689f23970cb41900b1930a"
     },
     {
       "slug": "morning-rounds",
@@ -271,9 +306,9 @@
         "fg-muted": "#7D7268",
         "edge": "#CBBFAE"
       },
-      "version": "1.0.1",
+      "version": "1.1.0",
       "created": "2026-09-21",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "youcoded-core",
       "features": [
         "wallpaper",
@@ -285,6 +320,13 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/manifest.json",
       "assetUrls": {
+        "assets/app-icon/app.ico": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/app-icon/app.ico",
+        "assets/app-icon/app.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/app-icon/app.png",
+        "assets/app-icon/glass.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/app-icon/glass.png",
+        "assets/app-icon/tray-alert.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/app-icon/tray-alert.png",
+        "assets/app-icon/tray-alert@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/app-icon/tray-alert@2x.png",
+        "assets/app-icon/tray.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/app-icon/tray.png",
+        "assets/app-icon/tray@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/app-icon/tray@2x.png",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-idle.svg",
         "assets/mascot-inquisitive.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-inquisitive.svg",
         "assets/mascot-rig.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/morning-rounds/assets/mascot-rig.svg",
@@ -311,9 +353,9 @@
         "fg-muted": "#A26179",
         "edge": "#E09AA8"
       },
-      "version": "1.3.0",
+      "version": "1.4.0",
       "created": "2026-04-12",
-      "updated": "2026-09-26",
+      "updated": "2026-10-05",
       "source": "community",
       "features": [
         "wallpaper",
@@ -325,6 +367,13 @@
       ],
       "manifestUrl": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/manifest.json",
       "assetUrls": {
+        "assets/app-icon/app.ico": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/app-icon/app.ico",
+        "assets/app-icon/app.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/app-icon/app.png",
+        "assets/app-icon/glass.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/app-icon/glass.png",
+        "assets/app-icon/tray-alert.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/app-icon/tray-alert.png",
+        "assets/app-icon/tray-alert@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/app-icon/tray-alert@2x.png",
+        "assets/app-icon/tray.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/app-icon/tray.png",
+        "assets/app-icon/tray@2x.png": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/app-icon/tray@2x.png",
         "assets/companions/berry.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/companions/berry.svg",
         "assets/companions/spark-red.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/companions/spark-red.svg",
         "assets/mascot-idle.svg": "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main/themes/strawberry-kitty/assets/mascot-idle.svg",
