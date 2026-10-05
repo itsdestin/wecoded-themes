@@ -1,7 +1,7 @@
 {
   "name": "Kuromi Dreamer",
   "slug": "kuromi-dreamer",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "companions": [
     {"asset": "assets/companions/spark-pink.svg", "size": 0.113, "dx": -0.452, "dy": -0.33, "stiffness": 95, "damping": 8, "float": 0.035, "floatMs": 2000},
     {"asset": "assets/companions/spark-white.svg", "size": 0.065, "dx": 0.417, "dy": -0.435, "stiffness": 70, "damping": 7, "float": 0.048, "floatMs": 2500},
@@ -78,5 +78,13 @@
     "inquisitive": "assets/mascot-inquisitive.svg",
     "shocked": "assets/mascot-shocked.svg"
   },
-  "custom_css": "::selection { background: rgba(110,63,160,0.32); color: var(--fg); }"
+  "custom_css": "::selection { background: rgba(110,63,160,0.32); color: var(--fg); }",
+  "appIcon": "assets/app-icon/app.png",
+  "appIconVariants": {
+    "windows": "assets/app-icon/app.ico",
+    "macGlass": "assets/app-icon/glass.png",
+    "tray": "assets/app-icon/tray.png",
+    "trayAlert": "assets/app-icon/tray-alert.png",
+    "hiDpi": ["assets/app-icon/tray@2x.png", "assets/app-icon/tray-alert@2x.png"]
+  }
 }

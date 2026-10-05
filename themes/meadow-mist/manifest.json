@@ -1,7 +1,7 @@
 {
   "name": "Meadow Mist",
   "slug": "meadow-mist",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dark": false,
   "author": "claude",
   "created": "2026-06-19",
@@ -65,5 +65,13 @@
     "shocked": "assets/mascot-shocked.svg"
   },
   "custom_css": "::selection { background: rgba(47, 125, 85, 0.3); color: var(--fg); }",
-  "contentHash": "sha256:168d293f2304c089afb639d1087c2c57c65c82db4776d36955bcec3dfc3a4ff1"
+  "contentHash": "sha256:84855911c8c27afb3ae672ca914928a43ad6bd87a3689f23970cb41900b1930a",
+  "appIcon": "assets/app-icon/app.png",
+  "appIconVariants": {
+    "windows": "assets/app-icon/app.ico",
+    "macGlass": "assets/app-icon/glass.png",
+    "tray": "assets/app-icon/tray.png",
+    "trayAlert": "assets/app-icon/tray-alert.png",
+    "hiDpi": ["assets/app-icon/tray@2x.png", "assets/app-icon/tray-alert@2x.png"]
+  }
 }

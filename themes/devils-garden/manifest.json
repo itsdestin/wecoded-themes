@@ -1,7 +1,7 @@
 {
   "name": "Devil's Garden",
   "slug": "devils-garden",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "dark": true,
   "author": "claude",
   "created": "2026-04-12",
@@ -70,5 +70,13 @@
     "shocked": "assets/mascot-shocked.svg"
   },
   "custom_css": "::selection { background: rgba(255, 198, 39, 0.3); }",
-  "contentHash": "sha256:fb2a7a0b1bc9e20f595d35314feb6a2ff4e593043669933faab0c30f8682a6fa"
+  "contentHash": "sha256:fa7a394368d47ffc92cf0af207df58610bf1e160bbae3181e4c7bc20f5bdfba4",
+  "appIcon": "assets/app-icon/app.png",
+  "appIconVariants": {
+    "windows": "assets/app-icon/app.ico",
+    "macGlass": "assets/app-icon/glass.png",
+    "tray": "assets/app-icon/tray.png",
+    "trayAlert": "assets/app-icon/tray-alert.png",
+    "hiDpi": ["assets/app-icon/tray@2x.png", "assets/app-icon/tray-alert@2x.png"]
+  }
 }
