@@ -13,7 +13,7 @@ jobs:
     steps:
       # WHY: The default shallow checkout lacks the PR's base commit, so the old
       # diff returned no themes and every per-theme validator passed without running.
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7
         with:
           fetch-depth: 0
 
@@ -246,3 +246,12 @@ jobs:
       - name: Audit drawing safety
         run: |
           node scripts/audit-svg-safety.mjs --self-test
+
+      # Stylesheet and font safety (2026-10-30 security audit SC-1/SC-2): custom_css styles the whole
+      # app and font.google-font-url becomes a remote stylesheet link. The inline regexes in "Validate
+      # manifests" miss escaped spellings (url(\68ttps://...)), image-set("https://...") and split
+      # keywords, so this reads the CSS the way a browser does. BLOCKING; every published theme passes.
+      # Runs over every theme (cheap), self-test first so a loosened check fails loudly.
+      - name: Audit stylesheet and font safety
+        run: |
+          node scripts/audit-css-safety.mjs --self-test
