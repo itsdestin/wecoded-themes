@@ -7,6 +7,11 @@ on:
       - 'scripts/**'
       - '.github/workflows/validate-theme.yml'
 
+# WHY (code scanning, 2026-11): read-only unless a job asks for more. Jobs that write
+# (publishing, signing, check runs) declare their own permissions, which override this.
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest
