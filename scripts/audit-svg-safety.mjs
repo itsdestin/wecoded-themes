@@ -51,7 +51,15 @@ export function svgProblems(text) {
   // Everything between is invisible to one and live to the other.
   if (/<!---?>/.test(body) || body.includes('--!>')) problems.push('comment shaped to close early (<!--> or --!>)');
 
+  // WHY (code scanning, 2026-11): comments are stripped before the tag scan, so anything about
+  // a comment that XML and HTML readers disagree on must be refused first. "--" inside a comment
+  // is invalid XML and is where readers diverge; an opener with no closer leaves a reader free to
+  // decide where the comment ends. Neither appears in any published drawing.
+  for (const c of body.matchAll(/<!--([\s\S]*?)-->/g)) {
+    if (c[1].includes('--')) { problems.push('"--" inside a comment'); break; }
+  }
   const stripped = body.replace(/<!--[\s\S]*?-->/g, '');
+  if (stripped.includes('<!--')) problems.push('comment that never closes');
   for (const tag of stripped.matchAll(/<\s*([a-zA-Z][\w:.-]*)([^>]*)>/g)) {
     const [, rawName, attrs] = tag;
     const name = rawName.replace(/^[\w.-]+:/, '');
@@ -100,6 +108,8 @@ function selfTest() {
     svg('<g filter="url(https://example.com/x.svg#f)"/>'),
     svg('<path style="fill:url(//example.com/p)"/>'),
     svg('<!-- a --!><img src=x onerror=alert(1)>-->'),
+    svg('<!-- a -- b --><circle/>'),
+    svg('<circle/><!-- never closed <script>alert(1)</script>'),
   ];
   const mustPass = [
     '<?xml version="1.0" encoding="UTF-8"?>\n' + svg(

@@ -4,13 +4,42 @@ Rebuilds registry/theme-registry.json from all themes/*/manifest.json files.
 Auto-detects features from manifest fields.
 """
 
+import hashlib
 import json
 import os
+import re
+import subprocess
 from datetime import datetime, timezone
 
 THEMES_DIR = "themes"
 REGISTRY_PATH = "registry/theme-registry.json"
 REPO_BASE = "https://raw.githubusercontent.com/itsdestin/wecoded-themes/main"
+
+
+def pinned_base() -> str:
+    """Base URL for theme FILES, fixed to the commit this registry was built from.
+
+    WHY (security apparatus, 2026-11): `main` moves, so a URL on it can serve different
+    bytes than the ones this run read and fingerprinted (a later push, or a CDN copy from
+    another moment). A commit URL never changes, so what the app downloads is exactly what
+    passed review. Falls back to `main` only outside a git checkout. Previews stay on main
+    (they are generated after this commit and are not code the app runs).
+    """
+    sha = os.environ.get("REGISTRY_COMMIT", "")
+    if not sha:
+        try:
+            sha = subprocess.run(["git", "rev-parse", "HEAD"], capture_output=True, text=True, check=True).stdout.strip()
+        except (OSError, subprocess.CalledProcessError):
+            sha = ""
+    if re.fullmatch(r"[0-9a-f]{40}", sha):
+        return f"https://raw.githubusercontent.com/itsdestin/wecoded-themes/{sha}"
+    print("  ⚠ not in a git checkout: theme file URLs fall back to main")
+    return REPO_BASE
+
+
+def sha256_file(path: str) -> str:
+    with open(path, "rb") as f:
+        return hashlib.sha256(f.read()).hexdigest()
 
 # Official themes (source: youcoded-core) — maintained by itsdestin
 OFFICIAL_AUTHORS = {"itsdestin"}
@@ -72,7 +101,7 @@ def extract_manifest_assets(manifest: dict) -> set[str]:
     return refs
 
 
-def collect_asset_urls(slug: str, theme_dir: str, manifest: dict) -> dict[str, str]:
+def collect_asset_urls(slug: str, theme_dir: str, manifest: dict, base: str = REPO_BASE) -> dict[str, str]:
     """Build URL map for assets that the manifest actually references.
 
     Only includes files that (a) are referenced in the manifest and
@@ -85,7 +114,7 @@ def collect_asset_urls(slug: str, theme_dir: str, manifest: dict) -> dict[str, s
     for rel_path in sorted(referenced):
         abs_path = os.path.join(theme_dir, rel_path)
         if os.path.isfile(abs_path):
-            asset_urls[rel_path] = f"{REPO_BASE}/themes/{slug}/{rel_path}"
+            asset_urls[rel_path] = f"{base}/themes/{slug}/{rel_path}"
         else:
             # Manifest references a file that doesn't exist — flag it
             print(f"  ⚠ {slug}: manifest references '{rel_path}' but file is missing")
@@ -95,6 +124,7 @@ def collect_asset_urls(slug: str, theme_dir: str, manifest: dict) -> dict[str, s
 
 def build_registry():
     themes = []
+    files_base = pinned_base()
 
     for slug in sorted(os.listdir(THEMES_DIR)):
         theme_dir = os.path.join(THEMES_DIR, slug)
@@ -125,6 +155,11 @@ def build_registry():
             else None
         )
 
+        asset_urls = collect_asset_urls(slug, theme_dir, manifest, files_base)
+        file_hashes = {"manifest.json": sha256_file(manifest_path)}
+        for rel_path in asset_urls:
+            file_hashes[rel_path] = sha256_file(os.path.join(theme_dir, rel_path))
+
         entry = {
             "slug": slug,
             "name": manifest.get("name", slug),
@@ -138,8 +173,11 @@ def build_registry():
             "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             "source": source,
             "features": detect_features(manifest),
-            "manifestUrl": f"{REPO_BASE}/themes/{slug}/manifest.json",
-            "assetUrls": collect_asset_urls(slug, theme_dir, manifest),
+            "manifestUrl": f"{files_base}/themes/{slug}/manifest.json",
+            "assetUrls": asset_urls,
+            # WHY (security apparatus, 2026-11): SHA-256 of every file the app downloads, keyed
+            # like assetUrls plus "manifest.json". The app refuses a download that does not match.
+            "fileHashes": file_hashes,
             # Propagated from the author's manifest.json. Used by YouCoded's
             # theme-publish-state resolver to detect whether a locally-edited
             # theme has drifted from its published registry entry. Legacy
