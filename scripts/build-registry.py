@@ -122,8 +122,41 @@ def collect_asset_urls(slug: str, theme_dir: str, manifest: dict, base: str = RE
     return asset_urls
 
 
+def load_previous_registry() -> dict:
+    """The registry as last published, keyed by slug ({} when there is none or it is unreadable)."""
+    try:
+        with open(REGISTRY_PATH, "r", encoding="utf-8") as f:
+            return {t["slug"]: t for t in json.load(f).get("themes", []) if "slug" in t}
+    except (OSError, ValueError, KeyError, TypeError):
+        return {}
+
+
+def updated_date(old: dict | None, new: dict, today: str) -> str:
+    """The "updated" date for a theme: today only if its own version or files changed.
+
+    WHY (2026-11-12): every rebuild used to stamp ALL themes with today's date, so the marketplace's
+    "New" sort treated every theme as freshly updated whenever any one theme changed. A theme keeps
+    its previous date unless its version differs, or its files differ. Files are compared by the
+    per-file fingerprints when the old entry has them, else by the author's contentHash. When the
+    old entry offers nothing to compare, the old date is KEPT: never invent freshness.
+    """
+    if not old or not old.get("updated"):
+        return today
+    if old.get("version") != new.get("version"):
+        return today
+    old_fh, new_fh = old.get("fileHashes"), new.get("fileHashes")
+    if old_fh and new_fh:
+        return today if old_fh != new_fh else old["updated"]
+    old_ch, new_ch = old.get("contentHash"), new.get("contentHash")
+    if old_ch and new_ch and old_ch != new_ch:
+        return today
+    return old["updated"]
+
+
 def build_registry():
     themes = []
+    previous = load_previous_registry()
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     files_base = pinned_base()
 
     for slug in sorted(os.listdir(THEMES_DIR)):
@@ -170,7 +203,7 @@ def build_registry():
             "previewTokens": preview_tokens if len(preview_tokens) >= 5 else None,
             "version": manifest.get("version", "1.0.0"),
             "created": manifest.get("created"),
-            "updated": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+            "updated": today,  # replaced below once the entry's fingerprints are known
             "source": source,
             "features": detect_features(manifest),
             "manifestUrl": f"{files_base}/themes/{slug}/manifest.json",
@@ -186,6 +219,7 @@ def build_registry():
             "contentHash": manifest.get("contentHash"),
         }
 
+        entry["updated"] = updated_date(previous.get(slug), entry, today)
         themes.append(entry)
 
     registry = {
